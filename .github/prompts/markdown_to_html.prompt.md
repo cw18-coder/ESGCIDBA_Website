@@ -42,6 +42,24 @@ thesis_md/                          →  thesis_html/
 1. Read the entire Markdown file content
 2. Parse any frontmatter (YAML metadata) if present
 3. Extract title, date, author, or other metadata
+4. **Date Extraction (Critical for TOC Organization)**:
+   - Search for date patterns in the document content in the format: "**Session Date**: DD Month YYYY" or "**Date**: DD Month YYYY"
+   - Common formats to recognize:
+     - "12 October 2025"
+     - "12th October 2025" 
+     - "15th January 2026"
+     - "3rd March 2025"
+   - Parse the date string and convert to ISO format (YYYY-MM-DD) for manifest.json
+   - Example: "12th October 2025" → "2025-10-12"
+   - If no explicit date field found in content, check YAML frontmatter for date metadata
+   - Store both the original display format (for HTML display) and ISO format (for TOC organization)
+   - This date will be used by the TOC generator to organize documents hierarchically by Year → Month
+4. **Date Extraction (Critical for TOC Organization)**:
+   - Search for date patterns in the format: "**Session Date**: DD Month YYYY" or "**Date**: DD Month YYYY"
+   - Examples: "12 October 2025", "15th January 2026", "3rd March 2025"
+   - Parse the date and convert to ISO format (YYYY-MM-DD) for manifest.json
+   - If no explicit date field found, check document metadata or filename for date information
+   - Store both the original display format and ISO format for later use
 
 ### Step 3: Convert Markdown to HTML
 Convert Markdown syntax to semantic HTML:
@@ -114,11 +132,7 @@ Wrap the converted content in a complete HTML document structure:
     </main>
     
     <footer>
-        <nav class="page-navigation">
-            <a href="[previous-page].html" class="btn-previous">← Previous</a>
-            <a href="[next-page].html" class="btn-next">Next →</a>
-        </nav>
-        <p class="copyright">© 2025 Doctoral Thesis | All rights reserved</p>
+        <!-- Site footer content will be inserted here by header-footer.js -->
     </footer>
     
     <script src="/js/navigation.js"></script>
@@ -146,19 +160,28 @@ Use this metadata to:
 - Create breadcrumb navigation
 - Generate appropriate heading hierarchy
 
-### Step 6: Determine Previous/Next Pages
-1. List all HTML files in the current phase folder
-2. Sort alphabetically or by custom ordering
-3. Find the current file's position
-4. Set previous and next page links accordingly
-5. Disable buttons if at start/end of phase
+### Step 6: Update Manifest and Generate HTML
+1. **Update manifest.json with document metadata**:
+   - Read the existing manifest.json from the phase folder
+   - Add new document entry with: `file`, `title`, `date` (ISO format), and optional `category`
+   - If document is "index.html", mark it with `isPhaseOverview: true` and omit the date
+   - Sort documents by date (oldest to newest)
+   - Save updated manifest.json back to the phase folder
+2. Combine template + content + navigation
+3. Ensure proper HTML indentation and formatting
+4. Validate HTML structure
+5. Save to the corresponding `thesis_html/` location
+6. Confirm successful creation with output message
 
-### Step 7: Generate and Save HTML
-1. Combine template + content + navigation
-2. Ensure proper HTML indentation and formatting
-3. Validate HTML structure
-4. Save to the corresponding `thesis_html/` location
-5. Confirm successful creation with output message
+**Manifest Entry Example**:
+```json
+{
+  "file": "brainstorming_session1.html",
+  "title": "Brainstorming Session 1",
+  "date": "2025-10-12",
+  "category": "brainstorming"
+}
+```
 
 ## Styling Considerations
 
@@ -226,10 +249,11 @@ Add appropriate classes for responsive layout:
 
 After successful conversion:
 1. ✅ Confirm HTML file created at correct location
-2. 📝 Log conversion details (source, destination, timestamp)
-3. 🔍 Optionally validate HTML (check for broken links, missing images)
-4. 📊 Report any warnings or issues found
-5. 💡 Suggest next steps (e.g., view in browser, add to navigation)
+2. ✅ Confirm manifest.json updated with document metadata (including date in ISO format)
+3. 📝 Log conversion details (source, destination, timestamp, extracted date)
+4. 🔍 Optionally validate HTML (check for broken links, missing images)
+5. 📊 Report any warnings or issues found
+6. 💡 Suggest next steps (e.g., view in browser, TOC will auto-update on page load)
 
 ## Usage Example
 

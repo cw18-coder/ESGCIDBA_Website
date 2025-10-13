@@ -128,6 +128,124 @@
     padding: var(--spacing-md);
 }
 
+/* ===== Hierarchical TOC Styles ===== */
+.toc-root {
+    padding-left: 0;
+}
+
+.toc-node {
+    margin-bottom: var(--spacing-xs);
+}
+
+.toc-node-header {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: 4px;
+    transition: var(--transition-fast);
+    user-select: none;
+}
+
+.toc-node-header:hover {
+    background-color: var(--color-hover);
+}
+
+.toc-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    margin-right: var(--spacing-xs);
+    color: var(--color-text-light);
+    font-size: 0.7rem;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.toc-toggle:hover {
+    color: var(--color-primary);
+}
+
+.toc-label {
+    font-weight: 600;
+    color: var(--color-text);
+    font-size: 0.95rem;
+}
+
+/* Year level styling */
+.toc-level-year .toc-label {
+    font-size: 1rem;
+    color: var(--color-primary);
+    font-weight: 700;
+}
+
+/* Month level styling */
+.toc-level-month .toc-label {
+    font-size: 0.9rem;
+    color: var(--color-text);
+    font-weight: 600;
+}
+
+.toc-children {
+    padding-left: var(--spacing-lg);
+    margin-top: var(--spacing-xs);
+    transition: all 0.3s ease;
+}
+
+/* Phase overview special styling */
+.toc-phase-overview {
+    border-bottom: 1px solid var(--color-border);
+    margin-bottom: var(--spacing-md);
+    padding-bottom: var(--spacing-sm);
+    font-weight: 600;
+}
+
+.toc-phase-overview a {
+    font-weight: 600;
+    color: var(--color-primary);
+}
+
+/* Document links in hierarchical structure */
+.toc-document {
+    list-style: none;
+    margin-bottom: var(--spacing-xs);
+}
+
+.toc-document a {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    padding-left: var(--spacing-md);
+    font-size: 0.9rem;
+    border-left: 2px solid transparent;
+    transition: all 0.2s ease;
+}
+
+.toc-document a:hover {
+    border-left-color: var(--color-primary);
+    background-color: var(--color-hover);
+}
+
+.toc-document a.active {
+    background-color: var(--color-primary);
+    color: white;
+    border-left-color: var(--color-primary);
+    font-weight: 600;
+}
+
+/* Smooth expand/collapse animation */
+.toc-children[style*="display: none"] {
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+}
+
+.toc-children[style*="display: block"] {
+    opacity: 1;
+    max-height: 2000px;
+    overflow: visible;
+}
+
 /* ===== Main Content Area ===== */
 .main-content {
     flex: 1;
@@ -269,54 +387,6 @@ article figcaption {
     font-size: 0.95rem;
 }
 
-/* ===== Page Navigation Buttons ===== */
-.page-navigation {
-    display: flex;
-    justify-content: space-between;
-    gap: var(--spacing-md);
-    margin-top: var(--spacing-xl);
-    padding-top: var(--spacing-lg);
-    border-top: 2px solid var(--color-border);
-}
-
-.nav-button {
-    display: flex;
-    align-items: center;
-    gap: var(--spacing-sm);
-    padding: var(--spacing-md) var(--spacing-lg);
-    background-color: var(--color-primary);
-    color: white;
-    border: none;
-    border-radius: 4px;
-    font-family: var(--font-sans);
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color var(--transition-fast), transform var(--transition-fast);
-}
-
-.nav-button:hover {
-    background-color: var(--color-accent);
-    transform: translateY(-2px);
-}
-
-.nav-button:disabled {
-    background-color: var(--color-border);
-    cursor: not-allowed;
-    transform: none;
-}
-
-.nav-arrow {
-    font-size: 1.25rem;
-}
-
-.prev-button {
-    margin-right: auto;
-}
-
-.next-button {
-    margin-left: auto;
-}
-
 /* ===== Phase Introduction ===== */
 .phase-introduction {
     background-color: var(--color-card-bg);
@@ -356,7 +426,6 @@ article figcaption {
     header,
     .sidebar,
     .breadcrumb,
-    .page-navigation,
     footer {
         display: none;
     }
@@ -431,15 +500,6 @@ article figcaption {
     
     .main-content {
         padding: var(--spacing-md);
-    }
-    
-    .page-navigation {
-        flex-direction: column;
-    }
-    
-    .nav-button {
-        width: 100%;
-        justify-content: center;
     }
 }
 

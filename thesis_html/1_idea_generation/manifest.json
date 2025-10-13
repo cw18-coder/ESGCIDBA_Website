@@ -1,19 +1,18 @@
 {
   "phase": "1_idea_generation",
+  "title": "Idea Generation",
   "generated": "2025-10-13T08:53:20.555Z",
-  "fileCount": 2,
-  "files": [
+  "documents": [
     {
-      "filename": "index.html",
-      "title": "Phase Overview - Idea Generation",
-      "path": "thesis_html/1_idea_generation/index.html",
-      "modified": "2025-10-13T08:47:56.969Z"
+      "file": "index.html",
+      "title": "Phase Overview",
+      "isPhaseOverview": true
     },
     {
-      "filename": "brainstorming_session1.html",
+      "file": "brainstorming_session1.html",
       "title": "Brainstorming Session 1",
-      "path": "thesis_html/1_idea_generation/brainstorming_session1.html",
-      "modified": "2025-10-13T08:52:29.268Z"
+      "date": "2025-10-12",
+      "category": "brainstorming"
     }
   ]
 }
