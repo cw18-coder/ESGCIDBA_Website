@@ -225,10 +225,10 @@ For academic citation purposes, please contact the author.
 
 ## 📧 Contact
 
-**Doctoral Candidate**: [Your Name]
+**Doctoral Candidate**: Clarence Wong
 **Institution**: ESGCI (École Supérieure de Gestion et Commerce International)
 **Program**: Doctor of Business Administration (DBA)
-**Email**: [Your Email]
+**Email**: clarence18.aina@gmail.com
 
 ---
 
