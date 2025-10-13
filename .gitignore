@@ -1,0 +1,53 @@
+# Operating System Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+
+# Editor and IDE Files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.settings/
+.classpath
+
+# Node.js (if any scripts are added later)
+node_modules/
+npm-debug.log
+yarn-error.log
+package-lock.json
+
+# Temporary Files
+*.tmp
+*.temp
+*.log
+*.cache
+
+# Build Output (if any build tools are added later)
+dist/
+build/
+.cache/
+
+# Environment Variables
+.env
+.env.local
+.env.*.local
+
+# Backup Files
+*.bak
+*.backup
+*~
+
+# Personal Notes (not to be committed)
+PRIVATE_NOTES.md
+TODO_PERSONAL.md
+
+# Optional: Keep .gitkeep files but ignore other empty markers
+# .gitkeep files are intentionally tracked to preserve folder structure
