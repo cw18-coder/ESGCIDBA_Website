@@ -1,0 +1,22 @@
+{
+  "name": "dba-thesis-website",
+  "version": "1.0.0",
+  "description": "Professional academic website for DBA thesis documentation",
+  "main": "index.html",
+  "scripts": {
+    "generate-manifests": "node js/generate-manifest.js",
+    "serve": "python -m http.server 8000",
+    "serve-alt": "npx http-server -p 8000"
+  },
+  "keywords": [
+    "thesis",
+    "dba",
+    "academic",
+    "research"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  }
+}

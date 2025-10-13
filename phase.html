@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="pageTitle">Phase - DBA Thesis</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/academic.css">
+</head>
+<body>
+    <header></header>
+
+    <div class="page-container">
+        <!-- Breadcrumb Navigation -->
+        <nav class="breadcrumb" id="breadcrumb" aria-label="Breadcrumb">
+            <ol>
+                <li><a href="index.html">Home</a></li>
+                <li id="breadcrumbPhase">Phase</li>
+            </ol>
+        </nav>
+
+        <div class="content-layout">
+            <!-- Sidebar with Table of Contents -->
+            <aside class="sidebar" id="sidebar">
+                <button class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle sidebar">
+                    <span>☰</span>
+                </button>
+                <div class="sidebar-content">
+                    <h2 id="sidebarTitle">Contents</h2>
+                    <nav class="toc" id="tableOfContents">
+                        <p class="loading">Loading contents...</p>
+                    </nav>
+                </div>
+            </aside>
+
+            <!-- Main Content Area -->
+            <main class="main-content">
+                <article id="contentArea">
+                    <div class="loading-message">
+                        <p>Loading content...</p>
+                    </div>
+                </article>
+
+                <!-- Page Navigation -->
+                <nav class="page-navigation" id="pageNavigation">
+                    <button id="prevButton" class="nav-button prev-button" style="display: none;">
+                        <span class="nav-arrow">←</span>
+                        <span class="nav-label">Previous</span>
+                    </button>
+                    <button id="nextButton" class="nav-button next-button" style="display: none;">
+                        <span class="nav-label">Next</span>
+                        <span class="nav-arrow">→</span>
+                    </button>
+                </nav>
+            </main>
+        </div>
+    </div>
+
+    <footer></footer>
+
+    <script src="js/header-footer.js"></script>
+    <script>
+        // Initialize header and footer
+        // Active phase will be determined by phase-loader.js based on URL parameter
+        const urlParams = new URLSearchParams(window.location.search);
+        const phase = urlParams.get('phase');
+        initializeHeaderFooter(phase !== null ? 'phase' + phase : '');
+    </script>
+    <script src="js/navigation.js"></script>
+    <script src="js/toc-generator.js"></script>
+    <script src="js/phase-loader.js"></script>
+</body>
+</html>

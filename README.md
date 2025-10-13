@@ -57,77 +57,105 @@ ESGCIDBA_Website/
 └── README.md                       # This file
 ```
 
-## 🚀 Getting Started
+## 🚀 Quick Start
 
-### Prerequisites
-
-- Git installed on your system
-- A GitHub account
-- A text editor or IDE (VS Code recommended)
-- Basic understanding of HTML/CSS/JavaScript
-
-### Local Development
+### For First-Time Setup
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/[username]/ESGCIDBA_Website.git
+   git clone https://github.com/cw18-coder/ESGCIDBA_Website.git
    cd ESGCIDBA_Website
    ```
 
-2. **Open in your browser:**
-   - Simply open `index.html` in a web browser
-   - Or use a local server (e.g., VS Code Live Server extension)
+2. **Preview locally:**
+   ```bash
+   # Option 1: Double-click start-server.bat (Windows)
+   # Option 2: Use Python
+   python -m http.server 8000
+   # Option 3: Use Node.js
+   npm run serve
+   ```
 
-3. **Make changes:**
-   - Edit Markdown files in `thesis_md/`
-   - Convert to HTML using the markdown_to_html prompt
-   - Preview changes locally before committing
+3. **Visit in browser:**
+   ```
+   http://localhost:8000
+   ```
 
-### Deployment to GitHub Pages
+### For Adding Content
 
-This site is designed to work seamlessly with GitHub Pages without any build process.
+1. **Add HTML files to appropriate phase folder:**
+   ```bash
+   # Example: Add to Phase 3 (Literature Review)
+   thesis_html/3_literature_review/your_new_file.html
+   ```
 
-1. **Push to GitHub:**
+2. **Regenerate manifest files:**
+   ```bash
+   npm run generate-manifests
+   ```
+
+3. **Test locally, then deploy:**
    ```bash
    git add .
-   git commit -m "Your commit message"
+   git commit -m "Add new content"
    git push origin main
    ```
 
-2. **Enable GitHub Pages:**
-   - Go to repository Settings → Pages
-   - Source: Deploy from branch `main`
-   - Folder: `/ (root)`
-   - Save
+## 📚 Documentation
 
-3. **Access your site:**
-   - Default: `https://[username].github.io/ESGCIDBA_Website/`
-   - Custom domain (if configured): See CNAME file
+- **[QUICK_REFERENCE.md](QUICK_REFERENCE.md)** - Quick command reference
+- **[context/website_guide.context.md](context/website_guide.context.md)** - Complete website usage guide
+- **[context/deployment_guide.context.md](context/deployment_guide.context.md)** - Deployment instructions
+- **[context/implementation_summary.context.md](context/implementation_summary.context.md)** - Technical details
+- **[.github/prompts/](./github/prompts/)** - AI assistant prompts for various tasks
 
+## 🌐 Live Website
+
+- **Production:** https://esgci-dba-thesis.clarencew.dev
+- **GitHub Pages:** https://cw18-coder.github.io/ESGCIDBA_Website/
+
+## ✨ Website Features
+
+- **Dynamic Navigation**: Multi-level navigation across all research phases
+- **Auto-Generated TOC**: Table of contents automatically built from HTML files
+- **Responsive Design**: Works on desktop, tablet, and mobile devices
+- **Academic Styling**: Professional typography and color scheme
+- **Sequential Navigation**: Previous/Next buttons for linear reading
+- **Print Support**: Optimized for printing research documents
+- **Breadcrumbs**: Always know where you are in the site structure
 ## 📝 Content Management
 
 ### Adding New Content
 
-1. **Create Markdown file:**
-   - Write content in `thesis_md/[phase_folder]/your_file.md`
-   - Include YAML frontmatter for metadata
+1. **Create content in Markdown:**
+   ```bash
+   thesis_md/[phase_folder]/your_content.md
+   ```
 
 2. **Convert to HTML:**
-   - Use the `markdown_to_html.prompt.md` guide
-   - Output goes to corresponding `thesis_html/[phase_folder]/`
+   - Use `.github/prompts/markdown_to_html.prompt.md` guide
+   - Place in corresponding `thesis_html/[phase_folder]/`
 
-3. **Update navigation:**
-   - Table of contents updates automatically via JavaScript
-   - Ensure proper file naming for correct ordering
+3. **Regenerate manifests:**
+   ```bash
+   npm run generate-manifests
+   ```
 
-### File Naming Convention
+4. **Commit and deploy:**
+   ```bash
+   git add .
+   git commit -m "Add new content"
+   git push
+   ```
 
-Use descriptive, sequential filenames:
-- `01_introduction.md`
-- `02_methodology_overview.md`
-- `03_findings_summary.md`
+### File Naming Best Practices
 
-This ensures proper ordering in navigation and TOC.
+Use clear, descriptive names:
+- ✅ `literature_review_methodology.html`
+- ✅ `theoretical_framework_overview.html`
+- ❌ `doc1.html` or `untitled.html`
+
+Files are automatically ordered alphabetically in the TOC.
 
 ## 🎨 Design Philosophy
 

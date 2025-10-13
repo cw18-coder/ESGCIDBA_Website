@@ -167,3 +167,11 @@ Each phase landing page should:
 - Prioritize readability and usability over decorative elements
 - Ensure the website serves as both a presentation tool and a navigation aid
 - The website should grow with the thesis, accommodating new content easily
+
+## Related Documentation
+
+After implementation, refer to:
+- `context/website_guide.context.md` - Complete usage guide for the website
+- `context/deployment_guide.context.md` - Deployment instructions and troubleshooting
+- `context/implementation_summary.context.md` - Technical implementation details
+- `QUICK_REFERENCE.md` - Quick command reference for common tasks
