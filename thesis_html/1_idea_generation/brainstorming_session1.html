@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brainstorming Session 1 | Idea Generation</title>
+    <meta name="description" content="Brainstorming session exploring three research topics: sustained adoption paradox, psychological sustainability of human-AI collaboration, and distributed cognition in human-AI knowledge teams">
+    <meta name="author" content="Doctoral Candidate">
+    <meta name="keywords" content="doctoral thesis, DBA, idea generation, AI adoption, human-AI collaboration, transactive memory systems, Microsoft Copilot">
+    
+    <!-- CSS Links -->
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/academic.css">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <!-- Site header with navigation will be inserted here -->
+    </header>
+    
+    <main class="content-wrapper">
+        <aside class="toc-sidebar">
+            <!-- Table of contents navigation will be inserted here -->
+        </aside>
+        
+        <article class="main-content">
+            <h1>Three Compelling DBA Thesis Research Topics for Microsoft Copilot Notebook</h1>
+            
+            <p><strong>Session Date</strong>: 12 October 2025<br>
+            <strong>Session Number</strong>: 1</p>
+            
+            <hr>
+            
+            <h2>Research Topic 1: The Sustained Adoption Paradox - Predicting Long-Term Engagement with Enterprise AI Knowledge Management Systems</h2>
+            
+            <h3>Research Question</h3>
+            <p><strong>Primary</strong>: What individual, organizational, and usage-pattern factors predict sustained versus abandoned adoption of enterprise AI knowledge management tools, and how do these factors change over the adoption lifecycle?</p>
+            
+            <p><strong>Sub-questions</strong>:</p>
+            <ul>
+                <li>How do AI mindset, trust, and self-efficacy evolve from initial adoption through sustained use?</li>
+                <li>Which early usage patterns (feature exploration, query complexity, session frequency) predict long-term retention?</li>
+                <li>What role do organizational facilitating conditions play in bridging the intention-behavior gap?</li>
+            </ul>
+            
+            <h3>Theoretical Framework(s)</h3>
+            
+            <p><strong>Primary</strong>: <strong>Extended Technology Acceptance Model (TAM)</strong> with AI-specific constructs</p>
+            <ul>
+                <li>Core constructs: Perceived usefulness, perceived ease of use, behavioral intention, actual use behavior</li>
+                <li>AI-specific extensions: AI mindset (growth vs. fixed; non-deskilling beliefs), trust in AI systems, perceived AI intelligence, AI anxiety, job threat perceptions</li>
+                <li>Justification: TAM is the most validated framework in technology adoption (meta-analysis N=34,357), and recent 2024-2025 studies demonstrate that AI mindset (β=0.28) rivals perceived usefulness (β=0.34) as a predictor</li>
+            </ul>
+            
+            <p><strong>Secondary</strong>: <strong>Diffusion of Innovation Theory</strong> for adopter segmentation</p>
+            <ul>
+                <li>Five adopter categories: innovators, early adopters, early majority, late majority, laggards</li>
+                <li>DOI attributes: relative advantage, compatibility, complexity, trialability, observability</li>
+                <li>Application: Understanding differential adoption trajectories across user segments</li>
+            </ul>
+            
+            <p><strong>Supporting</strong>: <strong>Self-Determination Theory</strong> for psychological sustainability</p>
+            <ul>
+                <li>Core needs: autonomy, competence, relatedness</li>
+                <li>Application: Examining intrinsic motivation changes during AI collaboration</li>
+            </ul>
+            
+            <h3>Research Gap Addressed</h3>
+            
+            <p><strong>Critical Gaps</strong>:</p>
+            <ol>
+                <li><strong>Post-adoption behavior gap</strong>: 92% of studies examine adoption intention; only 8% study sustained use and intensification (literature review finding)</li>
+                <li><strong>NotebookLM-style tools gap</strong>: Enterprise AI knowledge management tools combining multi-source data consolidation with conversational agents specifically identified as understudied (Research Methods subagent Gap #6)</li>
+                <li><strong>Longitudinal gap</strong>: Most studies cross-sectional; limited understanding of how attitudes and usage evolve over time (identified in all four research streams)</li>
+                <li><strong>Organizational vs. individual adoption chasm</strong>: 28% individual adoption vs. 5.4% organizational adoption creates implementation challenges <span class="citation">(St. Louis Fed 2025)</span></li>
+            </ol>
+            
+            <p><strong>Why Important</strong>: Organizations invest heavily in AI tools but face high abandonment rates. Understanding what sustains usage beyond initial novelty is critical for ROI. Current research focuses on initial adoption intentions, leaving sustained engagement mechanisms unexplored. With enterprise AI-KM market projected to grow from $3.0B (2024) to $102.1B (2034), understanding retention factors has major practical significance.</p>
+            
+            <h3>Quantitative Methodology</h3>
+            
+            <p><strong>Research Design</strong>: <strong>Three-phase longitudinal study with survival analysis</strong></p>
+            
+            <p><strong>Phase 1: Baseline Assessment (T0)</strong></p>
+            <ul>
+                <li>Survey instrument (N=400-600 Copilot Notebook users across multiple organizations)</li>
+                <li>Measures: TAM constructs, AI mindset, trust, self-efficacy, job threat perceptions, organizational support, demographic controls</li>
+                <li>Tool: Validated scales from Ibrahim et al. (2025), Popa et al. (2025), Gansser &amp; Reich (2021)</li>
+            </ul>
+            
+            <p><strong>Phase 2: Usage Tracking (T0 → T0+12 months)</strong></p>
+            <ul>
+                <li>Product telemetry data: Daily active usage, session duration, features used, query complexity, number of sources integrated, collaboration features adoption</li>
+                <li>Critical events: Feature exploration milestones, first collaborative use, first advanced query</li>
+                <li>Outcome variable: Time to abandonment (or censored at 12 months for sustained users)</li>
+            </ul>
+            
+            <p><strong>Phase 3: Follow-up Assessments (T3, T6, T12)</strong></p>
+            <ul>
+                <li>Repeated measures surveys: Track changes in TAM variables, intrinsic motivation, perceived skill development</li>
+                <li>Experience sampling: Weekly micro-surveys on immediate usage experiences</li>
+            </ul>
+            
+            <p><strong>Primary Analysis</strong>: <strong>Cox Proportional Hazards Survival Analysis</strong></p>
+            <ul>
+                <li>Dependent variable: Time to abandonment (days until 30-day inactivity threshold)</li>
+                <li>Independent variables: Initial TAM scores, AI mindset, trust, self-efficacy, organizational support</li>
+                <li>Time-varying covariates: Cumulative usage intensity, feature adoption progression</li>
+                <li>Covariates: User role, team size, industry, prior AI experience</li>
+                <li>Advantages: Handles censored data; examines timing not just occurrence; identifies critical retention periods</li>
+            </ul>
+            
+            <p><strong>Secondary Analyses</strong>:</p>
+            <ul>
+                <li><strong>Structural Equation Modeling (SEM)</strong>: Test extended TAM at each time point (T0, T6, T12) to examine construct relationships over time</li>
+                <li><strong>Hierarchical Linear Modeling (HLM)</strong>: Account for organizational nesting effects</li>
+                <li><strong>Cluster Analysis</strong>: Identify distinct user trajectory profiles using k-means or latent class analysis</li>
+                <li><strong>Regression Analysis</strong>: Predict usage intensity at T6 and T12 from baseline and early usage patterns</li>
+            </ul>
+            
+            <p><strong>Sample Size Justification</strong>: N=400-600 provides 80% power to detect medium effects (HR=1.5) in survival analysis with 15-20 predictors, assuming 40% event rate</p>
+            
+            <h3>Product Usage Data Leverage</h3>
+            
+            <p><strong>Key Metrics</strong>:</p>
+            <ol>
+                <li><strong>Engagement indicators</strong>: Daily/weekly active users, session frequency, session duration, return rate after gaps</li>
+                <li><strong>Feature adoption depth</strong>: Number of unique features used, progression from basic to advanced features, cross-source integration usage</li>
+                <li><strong>Knowledge base characteristics</strong>: Number of sources added, diversity of source types (M365 docs, external sources), knowledge base growth rate</li>
+                <li><strong>Query patterns</strong>: Query count, query complexity (measured by word count, question depth), topic diversity</li>
+                <li><strong>Collaboration behaviors</strong>: Agent interaction frequency, refinement cycles, acceptance vs. rejection of AI suggestions</li>
+                <li><strong>Critical moments</strong>: First use of advanced features, longest gaps between sessions, feature abandonment patterns</li>
+            </ol>
+            
+            <p><strong>Behavioral Operationalization</strong>:</p>
+            <ul>
+                <li><strong>Sustained adoption</strong>: Active use (≥1 session/week) at 6-month and 12-month marks</li>
+                <li><strong>Intensification</strong>: Increase in session frequency and feature diversity over time</li>
+                <li><strong>Abandonment</strong>: 30+ consecutive days of inactivity</li>
+                <li><strong>Early-stage proficiency</strong>: Time to first use of 5+ distinct features, time to first multi-source query</li>
+            </ul>
+            
+            <p><strong>Analytical Integration</strong>:</p>
+            <ul>
+                <li><strong>Predictive models</strong>: Use early usage patterns (first 30 days) to predict 6-month and 12-month retention</li>
+                <li><strong>Anomaly detection</strong>: Identify usage patterns that signal impending abandonment</li>
+                <li><strong>A/B testing potential</strong>: Compare retention rates across organizational contexts or user segments</li>
+            </ul>
+            
+            <h3>Contributions to Theory and Practice</h3>
+            
+            <p><strong>Theoretical Contributions</strong>:</p>
+            <ol>
+                <li><strong>Extended TAM validation</strong>: First comprehensive test of AI-enhanced TAM with longitudinal product usage data, addressing limitation that most TAM studies use cross-sectional self-reported intention</li>
+                <li><strong>Dynamic adoption model</strong>: Demonstrates how predictors of adoption change from initial uptake (trust, ease of use) to sustained use (usefulness, AI mindset, habit formation)</li>
+                <li><strong>AI mindset theory development</strong>: Tests whether AI mindset is stable trait or malleable through experience; examines mindset as moderator of usage patterns</li>
+                <li><strong>Bridging intention-behavior gap</strong>: Uses actual behavioral data to validate survey-based intention measures, addressing major criticism of TAM research</li>
+            </ol>
+            
+            <p><strong>Practical Contributions</strong>:</p>
+            <ol>
+                <li><strong>Early warning system</strong>: Identifies behavioral and attitudinal predictors of abandonment, enabling proactive intervention</li>
+                <li><strong>Onboarding optimization</strong>: Determines critical features and milestones that predict sustained adoption, informing product onboarding design</li>
+                <li><strong>Segmentation strategy</strong>: Characterizes distinct user profiles (centaurs vs. cyborgs; power users vs. casual users) for targeted support</li>
+                <li><strong>Organizational implementation guidance</strong>: Provides evidence-based recommendations for facilitating conditions that promote sustained enterprise adoption</li>
+                <li><strong>ROI metrics</strong>: Connects adoption patterns to productivity outcomes, supporting business case for enterprise AI-KM investments</li>
+            </ol>
+            
+            <p><strong>Impact Potential</strong>: With only 5.4% of firms formally adopting AI vs. 28% individual adoption, this research directly addresses the most critical challenge in enterprise AI: moving from pilot to sustained organizational deployment.</p>
+            
+            <hr>
+            
+            <h2>Research Topic 2: The Psychological Sustainability of Human-AI Collaboration - Examining Motivation, Agency, and Skill Development in AI-Augmented Knowledge Work</h2>
+            
+            <h3>Research Question</h3>
+            <p><strong>Primary</strong>: How does sustained collaboration with enterprise AI knowledge management systems affect knowledge workers' intrinsic motivation, sense of agency, and skill development over time, and what design features moderate these psychological effects?</p>
+            
+            <p><strong>Sub-questions</strong>:</p>
+            <ul>
+                <li>Does AI-augmented knowledge work enhance or undermine intrinsic motivation longitudinally?</li>
+                <li>How do different interaction patterns (AI-first assistance vs. user-guided collaboration) affect perceived autonomy and competence?</li>
+                <li>Does reliance on AI for knowledge synthesis lead to skill atrophy or skill enhancement?</li>
+                <li>What role does perceived AI intelligence play in moderating psychological outcomes?</li>
+            </ul>
+            
+            <h3>Theoretical Framework(s)</h3>
+            
+            <p><strong>Primary</strong>: <strong>Self-Determination Theory (SDT)</strong></p>
+            <ul>
+                <li>Three basic psychological needs: Autonomy (volition, control), Competence (efficacy, mastery), Relatedness (connection, belonging)</li>
+                <li>Intrinsic motivation driven by satisfaction of these needs</li>
+                <li>Application: AI collaboration may threaten autonomy and competence, undermining intrinsic motivation despite performance gains</li>
+                <li>Justification: Recent 2025 Nature study (N=3,562) found GenAI collaboration enhanced performance but significantly decreased intrinsic motivation and increased boredom when transitioning back to solo work—a critical finding requiring deeper investigation</li>
+            </ul>
+            
+            <p><strong>Secondary</strong>: <strong>Human-AI Teaming (HAIT) Framework</strong></p>
+            <ul>
+                <li>Defines collaboration as dynamic, interdependent process with shared goals and complementary capabilities</li>
+                <li>Key elements: shared mental models, mutual adaptation, role clarity, distributed cognition</li>
+                <li>Application: Examining how collaboration modes (delegation, augmentation, partnership) affect psychological outcomes</li>
+                <li>Recent update <span class="citation">(Berretta et al., 2023)</span>: Emphasizes dynamic role adaptation and bidirectional influence</li>
+            </ul>
+            
+            <p><strong>Supporting</strong>: <strong>Task-Technology Fit (TTF) Theory</strong></p>
+            <ul>
+                <li>Performance depends on match between task characteristics, technology capabilities, and individual abilities</li>
+                <li>Application: Different knowledge work tasks (creation vs. synthesis vs. analysis) may interact differently with AI collaboration</li>
+                <li>Justification: Meta-analysis <span class="citation">(Vaccaro et al., 2024)</span> shows task type critically moderates human-AI collaboration effectiveness (creation tasks g=0.19 positive; decision tasks g=-0.27 negative)</li>
+            </ul>
+            
+            <h3>Research Gap Addressed</h3>
+            
+            <p><strong>Critical Gaps</strong>:</p>
+            <ol>
+                <li><strong>Psychological sustainability gap</strong>: Most studies examine immediate performance; psychological effects over time largely unknown (identified as Gap #1 in Research Methods subagent)</li>
+                <li><strong>Skill transfer gap</strong>: No evidence that AI collaboration benefits persist in subsequent tasks; unknown whether AI degrades or develops human capability <span class="citation">(Dell'Acqua et al., 2023 BCG study; Gap #2)</span></li>
+                <li><strong>Sense of control gap</strong>: AI collaboration reduces perceived autonomy, but design principles to maintain agency while leveraging AI remain unexplored (Gap #7)</li>
+                <li><strong>Interaction pattern gap</strong>: 67% of studies use AI-first assistance; other collaboration modes understudied despite potentially different psychological effects <span class="citation">(Gomez et al., 2025 taxonomy)</span></li>
+            </ol>
+            
+            <p><strong>Why Important</strong>: Organizations achieving 12-40% productivity gains with AI risk undermining long-term workforce motivation and capability—a Pyrrhic victory if workers become psychologically dependent or deskilled. This is the "dark side" of AI collaboration that current enthusiasm overlooks. Understanding psychological sustainability is essential for ethical, effective AI deployment. With 41% of workers encountering AI-generated output requiring ~2 hours rework ("workslop"), the hidden costs of AI collaboration need rigorous examination.</p>
+            
+            <h3>Quantitative Methodology</h3>
+            
+            <p><strong>Research Design</strong>: <strong>2×2×2 Mixed Factorial Longitudinal Experiment</strong></p>
+            
+            <p><strong>Independent Variables</strong>:</p>
+            <ol>
+                <li><strong>Collaboration mode</strong> (between-subjects):
+                    <ul>
+                        <li><strong>AI-first assistance</strong>: AI provides synthesis, user reviews/edits (current default in most tools)</li>
+                        <li><strong>User-guided collaboration</strong>: User initiates query/task, AI provides supporting information, user maintains synthesis control</li>
+                    </ul>
+                </li>
+                <li><strong>Autonomy support</strong> (between-subjects):
+                    <ul>
+                        <li><strong>High autonomy</strong>: Transparent AI process, user controls when/how to use AI, can override/modify freely</li>
+                        <li><strong>Low autonomy</strong>: Automatic AI suggestions, limited control over AI process</li>
+                    </ul>
+                </li>
+                <li><strong>Time</strong> (within-subjects):
+                    <ul>
+                        <li><strong>Baseline (T0)</strong>: Pre-intervention assessment</li>
+                        <li><strong>Immediate (T1)</strong>: After 4 weeks of AI collaboration</li>
+                        <li><strong>Sustained (T2)</strong>: After 12 weeks of AI collaboration</li>
+                        <li><strong>Transfer (T3)</strong>: 2 weeks after AI removal (solo work)</li>
+                    </ul>
+                </li>
+            </ol>
+            
+            <p><strong>Participants</strong>: N=320 knowledge workers (80 per condition)</p>
+            <ul>
+                <li>Recruited from organizations using Copilot Notebook</li>
+                <li>Randomized assignment to conditions</li>
+                <li>Inclusion criteria: Regular knowledge synthesis work, no extensive prior AI assistant experience</li>
+            </ul>
+            
+            <p><strong>Procedure</strong>:</p>
+            <ol>
+                <li><strong>T0 (Baseline)</strong>: Complete validated questionnaires, perform standardized knowledge synthesis task solo</li>
+                <li><strong>Weeks 1-4</strong>: Use assigned Copilot Notebook configuration for daily work tasks; complete weekly experience sampling</li>
+                <li><strong>T1 (Week 4)</strong>: Complete questionnaires, perform knowledge synthesis task with AI</li>
+                <li><strong>Weeks 5-12</strong>: Continue assigned usage; bi-weekly experience sampling</li>
+                <li><strong>T2 (Week 12)</strong>: Complete questionnaires, perform knowledge synthesis task with AI</li>
+                <li><strong>Weeks 13-14</strong>: Complete tasks WITHOUT AI (withdrawal phase)</li>
+                <li><strong>T3 (Week 14)</strong>: Complete questionnaires, perform knowledge synthesis task solo</li>
+            </ol>
+            
+            <p><strong>Dependent Variables</strong>:</p>
+            
+            <p><em>Primary Outcomes</em>:</p>
+            <ul>
+                <li><strong>Intrinsic Motivation</strong>: Work Extrinsic and Intrinsic Motivation Scale (WEIMS; α=0.88)</li>
+                <li><strong>Perceived Autonomy</strong>: Work-related Basic Need Satisfaction Scale, autonomy subscale (α=0.82)</li>
+                <li><strong>Perceived Competence</strong>: Same scale, competence subscale (α=0.85)</li>
+                <li><strong>Sense of Control</strong>: Measured via adapted Spheres of Control scale (α=0.78)</li>
+            </ul>
+            
+            <p><em>Secondary Outcomes</em>:</p>
+            <ul>
+                <li><strong>Task Performance</strong>: Quality ratings (blind expert evaluation) and efficiency (time to completion) on standardized tasks</li>
+                <li><strong>Skill Transfer</strong>: Performance on T3 solo task compared to T0 baseline</li>
+                <li><strong>Psychological Ownership</strong>: Ownership of work outputs scale</li>
+                <li><strong>Boredom</strong>: Short Boredom Proneness Scale (α=0.83)</li>
+                <li><strong>AI Reliance</strong>: Self-reported and behavioral (proportion of AI suggestions accepted without modification)</li>
+            </ul>
+            
+            <p><em>Process Variables</em>:</p>
+            <ul>
+                <li><strong>Perceived AI Intelligence</strong>: Custom scale adapted from 2024 ChatGPT studies</li>
+                <li><strong>AI Mindset</strong>: Growth vs. fixed mindset regarding AI <span class="citation">(Ibrahim et al., 2025 scale)</span></li>
+                <li><strong>Mental Workload</strong>: NASA-TLX administered post-task</li>
+            </ul>
+            
+            <p><strong>Product Usage Data</strong>:</p>
+            <ul>
+                <li>Session frequency and duration</li>
+                <li>AI query initiation (user vs. automatic)</li>
+                <li>Acceptance/modification/rejection rates of AI suggestions</li>
+                <li>Feature usage patterns</li>
+                <li>Task completion metrics</li>
+            </ul>
+            
+            <p><strong>Primary Analysis</strong>: <strong>Mixed-Design Repeated Measures ANOVA</strong></p>
+            <ul>
+                <li>2 (collaboration mode) × 2 (autonomy support) × 3 (time: T0, T1, T2) mixed factorial</li>
+                <li>Within-subjects factor: Time</li>
+                <li>Between-subjects factors: Collaboration mode, autonomy support</li>
+                <li>Dependent variables: Intrinsic motivation, autonomy, competence, control</li>
+                <li>Hypothesized interactions: Collaboration mode × time; autonomy support × time; three-way interaction</li>
+            </ul>
+            
+            <p><strong>Secondary Analyses</strong>:</p>
+            <ol>
+                <li><strong>Growth Curve Modeling (Hierarchical Linear Modeling)</strong>:
+                    <ul>
+                        <li>Model individual trajectories of intrinsic motivation and perceived autonomy over time</li>
+                        <li>Examine between-person variability in growth parameters</li>
+                        <li>Test condition effects on slopes (rate of change)</li>
+                    </ul>
+                </li>
+                <li><strong>Structural Equation Modeling (SEM)</strong>:
+                    <ul>
+                        <li>Test mediation: Collaboration mode → Perceived autonomy/competence → Intrinsic motivation</li>
+                        <li>Test moderation: AI mindset moderating relationship between collaboration mode and psychological outcomes</li>
+                        <li>Multi-group SEM to test model invariance across conditions</li>
+                    </ul>
+                </li>
+                <li><strong>Pre-Post Analysis for Skill Transfer</strong>:
+                    <ul>
+                        <li>Paired t-tests: T3 (post-withdrawal) vs. T0 (baseline) performance</li>
+                        <li>ANCOVA: T3 performance controlling for T0, with condition as factor</li>
+                        <li>Hypothesis: User-guided &gt; AI-first for skill retention</li>
+                    </ul>
+                </li>
+                <li><strong>Behavioral Data Integration</strong>:
+                    <ul>
+                        <li>Correlate usage intensity with psychological outcomes</li>
+                        <li>Test whether acceptance rates predict skill transfer</li>
+                        <li>Identify critical usage thresholds for psychological effects</li>
+                    </ul>
+                </li>
+            </ol>
+            
+            <p><strong>Sample Size Justification</strong>: N=320 (80 per condition) provides 80% power to detect medium effect sizes (f=0.25) in mixed-design ANOVA with α=0.05, accounting for 20% attrition</p>
+            
+            <h3>Product Usage Data Leverage</h3>
+            
+            <p><strong>Behavioral Operationalization</strong>:</p>
+            <ol>
+                <li><strong>Autonomy indicators</strong>:
+                    <ul>
+                        <li>User-initiated vs. AI-prompted interactions</li>
+                        <li>Modification rate of AI suggestions (high modification = higher autonomy exercise)</li>
+                        <li>Feature customization usage</li>
+                        <li>Override frequency</li>
+                    </ul>
+                </li>
+                <li><strong>Engagement depth</strong>:
+                    <ul>
+                        <li>Query refinement cycles (iterative collaboration)</li>
+                        <li>Time spent reviewing AI outputs vs. using directly</li>
+                        <li>Depth of user input (word count, specificity)</li>
+                    </ul>
+                </li>
+                <li><strong>Reliance patterns</strong>:
+                    <ul>
+                        <li>Proportion of AI suggestions accepted without modification</li>
+                        <li>Time to decision on AI outputs</li>
+                        <li>Decrease in user-generated content over time</li>
+                    </ul>
+                </li>
+                <li><strong>Skill proxy measures</strong>:
+                    <ul>
+                        <li>Query sophistication over time (complexity, precision)</li>
+                        <li>Breadth of features used (exploration vs. routinization)</li>
+                        <li>Error detection (catching AI mistakes)</li>
+                    </ul>
+                </li>
+            </ol>
+            
+            <p><strong>Experimental Conditions Implementation</strong>:</p>
+            <ul>
+                <li>Different UI configurations in product to support experimental manipulations</li>
+                <li>A/B testing infrastructure to deliver conditions</li>
+                <li>Embedded experience sampling (ESM) prompts in product</li>
+            </ul>
+            
+            <h3>Contributions to Theory and Practice</h3>
+            
+            <p><strong>Theoretical Contributions</strong>:</p>
+            <ol>
+                <li><strong>SDT extension to AI collaboration</strong>: First rigorous test of Self-Determination Theory in sustained human-AI collaboration context, demonstrating whether AI threatens basic psychological needs</li>
+                <li><strong>Task-technology-psychology integration</strong>: Connects task-technology fit theory with psychological outcomes, moving beyond performance to well-being</li>
+                <li><strong>Dynamic effects modeling</strong>: Shows how psychological effects unfold over time vs. cross-sectional snapshots</li>
+                <li><strong>Collaboration mode taxonomy validation</strong>: Tests whether different interaction patterns (AI-first vs. user-guided) produce meaningfully different outcomes</li>
+                <li><strong>Skill transfer mechanisms</strong>: Identifies whether AI collaboration enhances (scaffolding hypothesis) or undermines (atrophy hypothesis) human capability</li>
+            </ol>
+            
+            <p><strong>Practical Contributions</strong>:</p>
+            <ol>
+                <li><strong>Design principles for psychological sustainability</strong>: Evidence-based guidelines for designing AI collaboration features that maintain worker motivation and agency</li>
+                <li><strong>Interaction pattern recommendations</strong>: Identifies optimal collaboration modes for different task types and user needs</li>
+                <li><strong>Autonomy-supporting features</strong>: Demonstrates specific design elements (transparency, control, user initiation) that protect psychological needs</li>
+                <li><strong>Training implications</strong>: Informs how to onboard users to maintain skill development while leveraging AI</li>
+                <li><strong>Ethical AI deployment</strong>: Provides framework for responsible AI introduction that considers workforce well-being, not just productivity</li>
+                <li><strong>Policy guidance</strong>: Informs organizational policies on appropriate AI use patterns to prevent psychological harm</li>
+            </ol>
+            
+            <p><strong>Differentiation from Topic 1</strong>: While Topic 1 examines adoption and retention (behavioral outcomes), Topic 2 investigates psychological sustainability and skill development (psychological and capability outcomes). Topic 1 is observational and correlational; Topic 2 is experimental and causal. Together they provide complementary insights—Topic 1 shows what happens naturally, Topic 2 explains why and tests interventions.</p>
+            
+            <hr>
+            
+            <h2>Research Topic 3: Distributed Cognition in Human-AI Knowledge Teams - Examining Transactive Memory Systems and Collective Intelligence in Enterprise AI-Augmented Work</h2>
+            
+            <h3>Research Question</h3>
+            <p><strong>Primary</strong>: How do enterprise AI knowledge management systems alter team-level transactive memory systems, knowledge sharing behaviors, and collective intelligence, and what organizational factors moderate these effects?</p>
+            
+            <p><strong>Sub-questions</strong>:</p>
+            <ul>
+                <li>Does AI serve as an external memory component in team transactive memory systems, and how does this affect "who knows what" awareness?</li>
+                <li>How do teams coordinate knowledge across human members and AI agents in multi-source knowledge synthesis tasks?</li>
+                <li>Do teams using AI-augmented knowledge systems demonstrate higher collective intelligence than teams without AI?</li>
+                <li>What role do team-level facilitating conditions (training, norms, leadership) play in realizing collaborative benefits?</li>
+            </ul>
+            
+            <h3>Theoretical Framework(s)</h3>
+            
+            <p><strong>Primary</strong>: <strong>Transactive Memory Systems (TMS) Theory</strong></p>
+            <ul>
+                <li>Definition: Specialized division of cognitive labor relating to encoding, storage, and retrieval of knowledge—collective system for "who knows what"</li>
+                <li>Three core processes: Directory updating (knowing who knows what), information allocation (assigning encoding responsibility), retrieval coordination (accessing distributed knowledge)</li>
+                <li>Three dimensions: Specialization, credibility, coordination</li>
+                <li>Application: AI becomes external memory component in team TMS; changes how teams distribute cognitive labor</li>
+                <li>Evidence base: Choi et al. (2010) MIS Quarterly study (N=743): IT support → TMS → Knowledge sharing → Knowledge application → Team performance</li>
+            </ul>
+            
+            <p><strong>Secondary</strong>: <strong>Collective Intelligence Theory</strong></p>
+            <ul>
+                <li>Definition: Group's general ability to perform across wide variety of tasks</li>
+                <li>Key predictors: Average social sensitivity, equality in conversation turn-taking, proportion of females</li>
+                <li>Application: Examining whether AI augmentation enhances or disrupts collective intelligence factors</li>
+                <li>Recent extension: Human-AI collective intelligence as distinct construct</li>
+            </ul>
+            
+            <p><strong>Supporting</strong>: <strong>Absorptive Capacity (Team-Level)</strong></p>
+            <ul>
+                <li>Four dimensions: Acquisition, assimilation, transformation, exploitation of knowledge</li>
+                <li>Application: AI tools may enhance acquisition and assimilation but require organizational capabilities for transformation and exploitation</li>
+                <li>Recent finding: IS adoption alone doesn't generate IS-enabled absorptive capacity; requires synergies with organizational capabilities (2023 NCBI study, N=417)</li>
+            </ul>
+            
+            <p><strong>Contextual</strong>: <strong>Socio-Technical Systems (STS) Theory</strong></p>
+            <ul>
+                <li>Core premise: Work systems require joint optimization of social and technical subsystems</li>
+                <li>Application: Effective AI-augmented teams need coordinated development of AI capabilities AND team processes</li>
+                <li>Implication: Technology-only or training-only interventions insufficient</li>
+            </ul>
+            
+            <h3>Research Gap Addressed</h3>
+            
+            <p><strong>Critical Gaps</strong>:</p>
+            <ol>
+                <li><strong>Team-level perspective gap</strong>: Research dominated by individual-AI dyads; team dynamics with AI largely unexplored <span class="citation">(Berretta et al., 2023: "technology-centric bias dominates... limited attention to team-level dynamics")</span></li>
+                <li><strong>TMS with AI gap</strong>: While TMS theory extended to human-technology systems, no empirical studies examine AI as TMS component in knowledge synthesis contexts</li>
+                <li><strong>Collective intelligence with AI gap</strong>: Unknown whether AI enhances or disrupts team collective intelligence factors (social sensitivity, turn-taking equality)</li>
+                <li><strong>Multi-level integration gap</strong>: Studies focus on single level (individual OR team OR organization); need multi-level models showing cross-level effects</li>
+                <li><strong>Complementarity realization gap</strong>: Theoretical complementarity potential often high, but realized complementarity low (31% in studies); team-level factors explaining this gap unknown</li>
+            </ol>
+            
+            <p><strong>Why Important</strong>: Organizations don't adopt AI for individuals—they implement it for teams and organizations. Yet research focuses almost exclusively on individual-AI interaction. This creates knowledge-practice gap: we don't understand how AI transforms team cognition, coordination, and performance. With $3.0B AI-KM market growing to $102.1B by 2034, understanding team-level implementation is crucial. Furthermore, meta-analysis shows human-AI combinations often underperform (g=-0.23), suggesting coordination challenges at team level.</p>
+            
+            <h3>Quantitative Methodology</h3>
+            
+            <p><strong>Research Design</strong>: <strong>Multi-Level Field Study with Nested Experimental Comparison</strong></p>
+            
+            <p><strong>Level 1 (Individual)</strong>: Knowledge workers using Copilot Notebook<br>
+            <strong>Level 2 (Team)</strong>: Work teams (3-7 members) collaborating on shared knowledge bases<br>
+            <strong>Level 3 (Organization)</strong>: Organizations implementing Copilot Notebook enterprise-wide</p>
+            
+            <p><strong>Design Structure</strong>:</p>
+            <ul>
+                <li><strong>Cross-sectional comparison</strong>: Teams with AI (Treatment) vs. Teams without AI (Control)</li>
+                <li><strong>Longitudinal component</strong>: Track teams over 6 months</li>
+                <li><strong>Nested structure</strong>: Individuals nested within teams, teams nested within organizations</li>
+            </ul>
+            
+            <p><strong>Participants</strong>:</p>
+            <ul>
+                <li><strong>N=90 teams</strong> (45 treatment, 45 control) from 15-20 organizations</li>
+                <li><strong>N=450-540 individuals</strong> (assuming average team size of 5-6)</li>
+                <li><strong>Inclusion criteria</strong>: Knowledge-intensive teams (consulting, research, analysis, strategy) with collaborative tasks</li>
+            </ul>
+            
+            <p><strong>Procedure</strong>:</p>
+            
+            <p><em>Phase 1: Baseline (T0, Week 0)</em></p>
+            <ul>
+                <li>Individual surveys: Demographics, prior AI experience, individual-level TMS, self-efficacy</li>
+                <li>Team surveys: Team TMS scale, team processes, psychological safety</li>
+                <li>Team performance: Baseline collaborative knowledge synthesis task (evaluated by external raters)</li>
+                <li>Collective intelligence task: Standardized cognitive task battery</li>
+            </ul>
+            
+            <p><em>Phase 2: Intervention (Weeks 1-24)</em></p>
+            <ul>
+                <li><strong>Treatment teams</strong>: Implement Copilot Notebook with shared knowledge bases; training on collaborative AI use</li>
+                <li><strong>Control teams</strong>: Continue standard knowledge management practices (may use individual tools but not shared AI-KM system)</li>
+                <li><strong>Monthly pulse surveys</strong>: Brief team process and TMS assessments</li>
+                <li><strong>Product usage tracking</strong>: For treatment teams, capture all usage metrics</li>
+            </ul>
+            
+            <p><em>Phase 3: Midpoint Assessment (T1, Week 12)</em></p>
+            <ul>
+                <li>Repeat individual and team surveys</li>
+                <li>Team performance task</li>
+                <li>Qualitative interviews (subsample: 20 teams) on TMS and coordination changes</li>
+            </ul>
+            
+            <p><em>Phase 4: Endpoint Assessment (T2, Week 24)</em></p>
+            <ul>
+                <li>Full battery of baseline measures</li>
+                <li>Collective intelligence tasks</li>
+                <li>Team performance tasks</li>
+                <li>Organizational-level measures (collected from leadership)</li>
+            </ul>
+            
+            <p><strong>Dependent Variables</strong>:</p>
+            
+            <p><em>Team-Level Primary Outcomes</em>:</p>
+            <ul>
+                <li><strong>Transactive Memory System</strong>: 15-item TMS scale (Lewis, 2003; α=0.83-0.92)
+                    <ul>
+                        <li>Specialization subscale (5 items)</li>
+                        <li>Credibility subscale (5 items)</li>
+                        <li>Coordination subscale (5 items)</li>
+                    </ul>
+                </li>
+                <li><strong>Team Performance</strong>:
+                    <ul>
+                        <li>Quality of collaborative knowledge synthesis (blind expert rating on 7-point scale: accuracy, comprehensiveness, coherence, insight)</li>
+                        <li>Efficiency (time to completion)</li>
+                        <li>Innovation (novelty rating by experts)</li>
+                    </ul>
+                </li>
+                <li><strong>Collective Intelligence</strong>: Composite score from standardized task battery (Woolley et al., 2010 protocol)</li>
+                <li><strong>Knowledge Sharing Behavior</strong>: 5-item scale from Choi et al. (2010)</li>
+                <li><strong>Knowledge Application</strong>: 4-item scale from Choi et al. (2010)</li>
+            </ul>
+            
+            <p><em>Individual-Level Variables</em> (for multi-level modeling):</p>
+            <ul>
+                <li><strong>Individual TMS perceptions</strong>: Same scale, individual referent</li>
+                <li><strong>AI self-efficacy</strong>: 8-item scale (α=0.91)</li>
+                <li><strong>Trust in AI</strong>: 7-item scale adapted from Glikson &amp; Woolley (2020)</li>
+                <li><strong>Perceived usefulness of AI for team</strong>: Custom 4-item scale</li>
+                <li><strong>Role clarity with AI</strong>: 3-item scale</li>
+            </ul>
+            
+            <p><em>Team Process Variables</em>:</p>
+            <ul>
+                <li><strong>Team psychological safety</strong>: Edmondson 7-item scale (α=0.82)</li>
+                <li><strong>Team learning behavior</strong>: 7-item scale (Edmondson, 1999)</li>
+                <li><strong>Coordination quality</strong>: 5-item scale</li>
+                <li><strong>Communication patterns</strong>: Network density, centralization (from sociometric data)</li>
+            </ul>
+            
+            <p><em>Organizational Variables</em>:</p>
+            <ul>
+                <li><strong>Management support for AI</strong>: 4-item scale</li>
+                <li><strong>Training quality</strong>: 5-item scale</li>
+                <li><strong>AI implementation maturity</strong>: Custom scale based on Capability Maturity Model</li>
+                <li><strong>Organizational learning culture</strong>: 7-item scale</li>
+            </ul>
+            
+            <p><em>Product Usage Data (Treatment Teams Only)</em>:</p>
+            <ul>
+                <li><strong>Team-level metrics</strong>:
+                    <ul>
+                        <li>Shared knowledge base size (number of sources, documents)</li>
+                        <li>Knowledge base diversity (source types, topics)</li>
+                        <li>Collaborative queries (multi-person involvement)</li>
+                        <li>Cross-referencing patterns (how team members use shared knowledge)</li>
+                    </ul>
+                </li>
+                <li><strong>Individual-within-team metrics</strong>:
+                    <ul>
+                        <li>Individual contribution rate to shared knowledge base</li>
+                        <li>Individual query patterns</li>
+                        <li>Specialization indices (topic concentration)</li>
+                    </ul>
+                </li>
+            </ul>
+            
+            <p><strong>Primary Analysis</strong>: <strong>Hierarchical Linear Modeling (HLM) / Multi-Level Modeling</strong></p>
+            
+            <p><em>Model 1: Team Performance Predicted by TMS</em></p>
+            <pre><code>Level 1 (Individual): TMS_individual = β0j + rij
+Level 2 (Team): β0j = γ00 + γ01(AI_Treatment) + γ02(TMS_team) + γ03(AI × TMS) + u0j
+Level 3 (Organization): γ00 = θ000 + θ001(Org_support) + v00</code></pre>
+            
+            <p><em>Model 2: AI Effect on TMS Dimensions</em></p>
+            <ul>
+                <li>Examine whether AI treatment affects TMS specialization, credibility, coordination differently</li>
+                <li>Test organizational support as cross-level moderator</li>
+            </ul>
+            
+            <p><em>Model 3: Mediation Model</em></p>
+            <ul>
+                <li>AI → TMS → Knowledge Sharing → Knowledge Application → Team Performance</li>
+                <li>Use multi-level SEM to test full mediation chain from Choi et al. (2010)</li>
+            </ul>
+            
+            <p><strong>Secondary Analyses</strong>:</p>
+            
+            <ol>
+                <li><strong>Repeated Measures ANOVA</strong>:
+                    <ul>
+                        <li>2 (Condition: AI vs. Control) × 3 (Time: T0, T1, T2) mixed design</li>
+                        <li>Examine trajectory of TMS development over 6 months</li>
+                        <li>Test condition × time interactions</li>
+                    </ul>
+                </li>
+                <li><strong>Structural Equation Modeling (Team-Level)</strong>:
+                    <ul>
+                        <li>Test comprehensive model: AI usage patterns → TMS dimensions → Team processes → Performance outcomes</li>
+                        <li>Multi-group SEM: Compare model across organizations</li>
+                    </ul>
+                </li>
+                <li><strong>Social Network Analysis</strong>:
+                    <ul>
+                        <li>Map "who seeks knowledge from whom" networks at T0 and T2</li>
+                        <li>Examine whether AI changes network structure (centralization, density, clustering)</li>
+                        <li>Hypothesis: AI may reduce reliance on human "knowledge brokers"</li>
+                    </ul>
+                </li>
+                <li><strong>Mediation Analysis (Baron &amp; Kenny; Sobel tests)</strong>:
+                    <ul>
+                        <li>Test whether TMS mediates AI → Performance relationship</li>
+                        <li>Use bootstrapping for indirect effects (Hayes PROCESS macro)</li>
+                    </ul>
+                </li>
+                <li><strong>Collective Intelligence Analysis</strong>:
+                    <ul>
+                        <li>Compare CI scores between treatment and control at T2</li>
+                        <li>Test whether AI affects CI predictors (social sensitivity, turn-taking equality)</li>
+                        <li>Regression: CI predicting performance, with AI as moderator</li>
+                    </ul>
+                </li>
+                <li><strong>Usage Pattern Analysis</strong> (Treatment Teams Only):
+                    <ul>
+                        <li>Cluster analysis: Identify distinct team usage profiles</li>
+                        <li>Regression: Predict performance from usage patterns</li>
+                        <li>Threshold analysis: Minimum usage intensity for TMS effects</li>
+                    </ul>
+                </li>
+            </ol>
+            
+            <p><strong>Sample Size Justification</strong>:</p>
+            <ul>
+                <li>N=90 teams (45 per condition) provides 80% power for team-level effects (d=0.60) in HLM with 3 levels</li>
+                <li>N=450+ individuals allows robust individual-level analysis with nesting corrections</li>
+                <li>Accounts for 20% team attrition over 6 months</li>
+            </ul>
+            
+            <p><strong>Control Variables</strong>:<br>
+            Team size, team tenure, task complexity, industry, prior team performance, average AI experience, average education level</p>
+            
+            <h3>Product Usage Data Leverage</h3>
+            
+            <p><strong>Team-Level Behavioral Indicators</strong>:</p>
+            
+            <ol>
+                <li><strong>Specialization Metrics</strong>:
+                    <ul>
+                        <li><strong>Topic specialization</strong>: Using NLP to identify if team members focus on distinct knowledge domains in queries</li>
+                        <li><strong>Source ownership</strong>: Primary contributor for different document types</li>
+                        <li><strong>Expertise signaling</strong>: Frequency of being mentioned/tagged by teammates</li>
+                    </ul>
+                </li>
+                <li><strong>Credibility Indicators</strong>:
+                    <ul>
+                        <li><strong>Cross-validation patterns</strong>: How often team members verify each other's AI-generated insights</li>
+                        <li><strong>Authority gradients</strong>: Do certain members' AI outputs get used more by others?</li>
+                        <li><strong>Quality signals</strong>: Acceptance rates of AI suggestions by team member</li>
+                    </ul>
+                </li>
+                <li><strong>Coordination Metrics</strong>:
+                    <ul>
+                        <li><strong>Temporal coordination</strong>: Synchronization of team members' AI usage (clustered vs. distributed)</li>
+                        <li><strong>Handoff patterns</strong>: Sequential work where one member's output becomes another's input</li>
+                        <li><strong>Redundancy</strong>: Overlapping queries (high redundancy = poor coordination)</li>
+                        <li><strong>Communication</strong>: In-product mentions, shared annotations, collaborative sessions</li>
+                    </ul>
+                </li>
+                <li><strong>Knowledge Base Analytics</strong>:
+                    <ul>
+                        <li><strong>Contribution diversity</strong>: Gini coefficient of contributions across team members</li>
+                        <li><strong>Knowledge integration</strong>: Links between documents added by different members</li>
+                        <li><strong>Update velocity</strong>: Frequency of knowledge base updates (active curation)</li>
+                        <li><strong>Query-to-source ratio</strong>: Do teams use existing knowledge or constantly add new sources?</li>
+                    </ul>
+                </li>
+                <li><strong>Emergent Roles</strong>:
+                    <ul>
+                        <li><strong>Curator role</strong>: Members who organize and tag content</li>
+                        <li><strong>Query specialist</strong>: Members who formulate complex questions for team</li>
+                        <li><strong>Validator role</strong>: Members who quality-check AI outputs</li>
+                        <li><strong>Integrator role</strong>: Members who synthesize across sources</li>
+                    </ul>
+                </li>
+            </ol>
+            
+            <p><strong>Analytical Integration</strong>:</p>
+            <ul>
+                <li><strong>Behavioral TMS validation</strong>: Correlate self-reported TMS with behavioral specialization/coordination metrics</li>
+                <li><strong>Process tracing</strong>: Examine temporal sequences in collaborative tasks</li>
+                <li><strong>Critical incident analysis</strong>: Identify moments where TMS coordination succeeded/failed</li>
+                <li><strong>Network centrality</strong>: Compare behavioral specialization networks with self-reported "who knows what" perceptions</li>
+            </ul>
+            
+            <h3>Contributions to Theory and Practice</h3>
+            
+            <p><strong>Theoretical Contributions</strong>:</p>
+            
+            <ol>
+                <li><strong>TMS theory extension</strong>: First empirical test of AI as external memory component in team TMS; demonstrates how AI changes specialized division of cognitive labor</li>
+                <li><strong>Multi-level integration</strong>: Connects individual AI interactions to team-level TMS to organizational outcomes, filling critical gap in literature</li>
+                <li><strong>Collective intelligence reconceptualization</strong>: Tests whether human-AI teams exhibit collective intelligence properties and whether traditional CI predictors (social sensitivity, turn-taking) operate differently with AI</li>
+                <li><strong>Socio-technical systems validation</strong>: Demonstrates joint optimization requirement—that technology alone insufficient without team process development</li>
+                <li><strong>Absorptive capacity mechanisms</strong>: Clarifies how AI enhances acquisition/assimilation but requires team capabilities for transformation/exploitation</li>
+                <li><strong>Complementarity realization</strong>: Identifies team-level factors that bridge gap between complementarity potential and realized complementarity</li>
+            </ol>
+            
+            <p><strong>Practical Contributions</strong>:</p>
+            
+            <ol>
+                <li><strong>Team implementation playbook</strong>: Evidence-based guidelines for deploying AI-KM tools at team level, not just individual level</li>
+                <li><strong>Training redesign</strong>: Shifts from individual AI training to team coordination training with AI</li>
+                <li><strong>Role design</strong>: Identifies emergent roles in AI-augmented teams (curator, validator, integrator) for intentional role assignment</li>
+                <li><strong>Coordination mechanisms</strong>: Specifies team processes that enable effective TMS with AI (regular calibration meetings, explicit specialization agreements)</li>
+                <li><strong>Organizational support framework</strong>: Demonstrates which organizational factors (training, management support, learning culture) most critical for team-level success</li>
+                <li><strong>Performance metrics</strong>: Provides validated team-level metrics for AI-augmented work (beyond individual productivity)</li>
+                <li><strong>Change management</strong>: Informs how to help teams restructure cognitive division of labor when introducing AI</li>
+            </ol>
+            
+            <p><strong>Differentiation from Topics 1 &amp; 2</strong>:</p>
+            <ul>
+                <li><strong>Topic 1</strong> = Individual adoption trajectories (individual-level, longitudinal observational)</li>
+                <li><strong>Topic 2</strong> = Individual psychological effects (individual-level, experimental)</li>
+                <li><strong>Topic 3</strong> = Team dynamics and collective outcomes (team-level, multi-level field study)</li>
+            </ul>
+            
+            <p>Together, these three topics provide comprehensive coverage: Topic 1 addresses adoption and retention; Topic 2 addresses individual psychological sustainability; Topic 3 addresses team-level coordination and collective performance. All three are grounded in different established theories, use different quantitative methodologies appropriate to their research questions, and leverage product usage data in distinct ways.</p>
+            
+            <hr>
+            
+            <h2>Summary Comparison of Three Topics</h2>
+            
+            <table class="academic-table">
+                <thead>
+                    <tr>
+                        <th>Dimension</th>
+                        <th>Topic 1: Sustained Adoption</th>
+                        <th>Topic 2: Psychological Sustainability</th>
+                        <th>Topic 3: Team Dynamics</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Primary Theory</strong></td>
+                        <td>Extended TAM + DOI</td>
+                        <td>Self-Determination Theory + HAIT</td>
+                        <td>Transactive Memory Systems + Collective Intelligence</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Level of Analysis</strong></td>
+                        <td>Individual</td>
+                        <td>Individual</td>
+                        <td>Team + Multi-level</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Research Design</strong></td>
+                        <td>Longitudinal observational</td>
+                        <td>Longitudinal experiment</td>
+                        <td>Multi-level field study</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Primary Method</strong></td>
+                        <td>Survival analysis (Cox regression)</td>
+                        <td>Repeated measures ANOVA + Growth curve modeling</td>
+                        <td>Hierarchical Linear Modeling (HLM)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Key DV</strong></td>
+                        <td>Time to abandonment; Sustained use</td>
+                        <td>Intrinsic motivation; Skill transfer</td>
+                        <td>Team TMS; Collective intelligence; Team performance</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Product Data Use</strong></td>
+                        <td>Usage patterns predicting retention</td>
+                        <td>Behavioral autonomy indicators</td>
+                        <td>Team coordination metrics; Knowledge base analytics</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Major Gap Addressed</strong></td>
+                        <td>Post-adoption behavior</td>
+                        <td>Psychological long-term effects</td>
+                        <td>Team-level AI dynamics</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Sample Size</strong></td>
+                        <td>N=400-600 individuals</td>
+                        <td>N=320 individuals (4 conditions)</td>
+                        <td>N=90 teams (~450-540 individuals)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Duration</strong></td>
+                        <td>12 months</td>
+                        <td>14 weeks</td>
+                        <td>24 weeks (6 months)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Primary Contribution</strong></td>
+                        <td>Predicting and preventing abandonment</td>
+                        <td>Designing for psychological sustainability</td>
+                        <td>Enabling effective team implementation</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h2>Implementation Feasibility for Microsoft Context</h2>
+            
+            <p><strong>Access to Data</strong>: All three topics leverage product telemetry data available to Senior Data Scientist on Copilot Notebook team</p>
+            
+            <p><strong>Organizational Partnerships</strong>: Microsoft's enterprise customer base provides recruitment pool for field studies and experiments</p>
+            
+            <p><strong>Practical Impact</strong>: Each topic directly addresses product development priorities:</p>
+            <ul>
+                <li>Topic 1: Retention and engagement optimization</li>
+                <li>Topic 2: Ethical AI design and user well-being</li>
+                <li>Topic 3: Enterprise team deployment success</li>
+            </ul>
+            
+            <p><strong>Publication Potential</strong>: All three topics address high-priority research gaps identified in top-tier journals (Nature, MIS Quarterly, Academy of Management), offering strong publication prospects</p>
+            
+            <p><strong>DBA Rigor</strong>: Each meets DBA standards through:</p>
+            <ul>
+                <li>Established theoretical grounding</li>
+                <li>Quantitative empirical design with adequate sample sizes</li>
+                <li>Rigorous methodology (SEM, survival analysis, HLM)</li>
+                <li>Integration of theory and practice</li>
+                <li>Novel contributions to both academic knowledge and business practice</li>
+            </ul>
+        </article>
+    </main>
+    
+    <footer>
+        <nav class="page-navigation">
+            <a href="index.html" class="btn-previous">← Phase Overview</a>
+            <span class="page-info">Brainstorming Session 1</span>
+        </nav>
+        <p class="copyright">© 2025 Doctoral Thesis | All rights reserved</p>
+    </footer>
+    
+    <script src="/js/navigation.js"></script>
+    <script src="/js/header-footer.js"></script>
+    <script src="/js/toc-generator.js"></script>
+</body>
+</html>

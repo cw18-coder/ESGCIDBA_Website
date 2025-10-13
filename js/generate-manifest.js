@@ -23,9 +23,8 @@ const PHASES = [
 function getHtmlFiles(dirPath) {
     try {
         const files = fs.readdirSync(dirPath);
-        return files
+        const htmlFiles = files
             .filter(file => file.endsWith('.html'))
-            .sort()
             .map(filename => {
                 const filePath = path.join(dirPath, filename);
                 const stats = fs.statSync(filePath);
@@ -36,11 +35,31 @@ function getHtmlFiles(dirPath) {
                     const content = fs.readFileSync(filePath, 'utf8');
                     const titleMatch = content.match(/<title>(.*?)<\/title>/i);
                     if (titleMatch) {
-                        title = titleMatch[1].replace(' - DBA Thesis', '').trim();
+                        let extractedTitle = titleMatch[1]
+                            .replace(' - DBA Thesis', '')
+                            .replace(' | Idea Generation', '')
+                            .replace(' | Literature Review', '')
+                            .replace(' | Proposal', '')
+                            .replace(' | Reflection Journal', '')
+                            .replace(' | Theoretical Framework', '')
+                            .replace(' | Design', '')
+                            .replace(' | Data Collection', '')
+                            .replace(' | Data Analysis', '')
+                            .replace(' | Report', '')
+                            .trim();
+                        
+                        // Use extracted title unless it's too long or generic
+                        if (extractedTitle.length > 0 && extractedTitle.length < 100) {
+                            title = extractedTitle;
+                        }
                     } else {
                         const h1Match = content.match(/<h1[^>]*>(.*?)<\/h1>/i);
                         if (h1Match) {
                             title = h1Match[1].replace(/<[^>]*>/g, '').trim();
+                            // Limit very long titles
+                            if (title.length > 100) {
+                                title = formatFilename(filename);
+                            }
                         }
                     }
                 } catch (err) {
@@ -54,6 +73,13 @@ function getHtmlFiles(dirPath) {
                     modified: stats.mtime.toISOString()
                 };
             });
+        
+        // Sort: index.html always first, then alphabetically by filename
+        return htmlFiles.sort((a, b) => {
+            if (a.filename === 'index.html') return -1;
+            if (b.filename === 'index.html') return 1;
+            return a.filename.localeCompare(b.filename);
+        });
     } catch (error) {
         console.error(`Error reading directory ${dirPath}:`, error.message);
         return [];

@@ -1,13 +1,19 @@
 {
   "phase": "1_idea_generation",
-  "generated": "2024-10-13T00:00:00.000Z",
-  "fileCount": 1,
+  "generated": "2025-10-13T08:53:20.555Z",
+  "fileCount": 2,
   "files": [
     {
       "filename": "index.html",
       "title": "Phase Overview - Idea Generation",
       "path": "thesis_html/1_idea_generation/index.html",
-      "modified": "2024-10-13T00:00:00.000Z"
+      "modified": "2025-10-13T08:47:56.969Z"
+    },
+    {
+      "filename": "brainstorming_session1.html",
+      "title": "Brainstorming Session 1",
+      "path": "thesis_html/1_idea_generation/brainstorming_session1.html",
+      "modified": "2025-10-13T08:52:29.268Z"
     }
   ]
 }
