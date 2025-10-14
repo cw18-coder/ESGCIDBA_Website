@@ -432,6 +432,11 @@ article figcaption {
     border-top: 2px solid var(--color-border);
 }
 
+/* When only one button exists, center it */
+.page-navigation:has(.nav-button:only-child) {
+    justify-content: center;
+}
+
 .nav-button {
     display: inline-flex;
     align-items: center;

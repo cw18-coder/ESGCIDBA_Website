@@ -190,8 +190,9 @@ async function setupPageNavigation(phaseNumber) {
     const allFiles = await getAllPhaseFiles(phaseInfo.folder);
     
     if (!currentFile) {
-        // On phase landing page (no file parameter)
-        // Next button should go to the phase overview (index.html)
+        // ===== ON PHASE LANDING PAGE (no file parameter) =====
+        
+        // Setup Next button - goes to phase overview (index.html)
         const overviewFile = allFiles.find(f => f.isPhaseOverview);
         if (overviewFile) {
             nextButton.style.display = 'flex';
@@ -199,10 +200,38 @@ async function setupPageNavigation(phaseNumber) {
                 window.location.href = `phase.html?phase=${phaseNumber}&file=${overviewFile.filename}`;
             };
         }
-        // No previous button on landing page
-        prevButton.style.display = 'none';
+        
+        // Setup Previous button - goes to last entry of previous phase
+        if (phaseNumber === '0') {
+            // Phase 0 landing goes back to main landing page
+            prevButton.style.display = 'flex';
+            prevButton.onclick = () => {
+                window.location.href = 'index.html';
+            };
+        } else {
+            // Other phases: go to last entry of previous phase
+            const prevPhaseNumber = (parseInt(phaseNumber) - 1).toString();
+            const prevPhaseInfo = getPhaseInfo(prevPhaseNumber);
+            
+            if (prevPhaseInfo) {
+                const prevPhaseFiles = await getAllPhaseFiles(prevPhaseInfo.folder);
+                if (prevPhaseFiles.length > 0) {
+                    const lastFile = prevPhaseFiles[prevPhaseFiles.length - 1];
+                    prevButton.style.display = 'flex';
+                    prevButton.onclick = () => {
+                        window.location.href = `phase.html?phase=${prevPhaseNumber}&file=${lastFile.filename}`;
+                    };
+                } else {
+                    prevButton.style.display = 'none';
+                }
+            } else {
+                prevButton.style.display = 'none';
+            }
+        }
         return;
     }
+    
+    // ===== ON A SPECIFIC FILE PAGE =====
     
     // Find current file in all files list
     const currentIndex = allFiles.findIndex(f => f.filename === currentFile);
@@ -213,7 +242,7 @@ async function setupPageNavigation(phaseNumber) {
     
     // Setup previous button
     if (currentFileData.isPhaseOverview) {
-        // On phase overview, previous goes back to phase landing
+        // On phase overview, previous goes back to phase landing page
         prevButton.style.display = 'flex';
         prevButton.onclick = () => {
             window.location.href = `phase.html?phase=${phaseNumber}`;
