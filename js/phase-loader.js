@@ -1,5 +1,7 @@
 // phase-loader.js - Dynamic content loading for phase pages
 
+// Note: TOC_CONFIG is defined in toc-generator.js which loads before this script
+
 document.addEventListener('DOMContentLoaded', function() {
     initPhasePage();
 });
@@ -154,7 +156,7 @@ function showPhaseIntroduction(phaseNumber, phaseInfo) {
             <p class="phase-description">${descriptions[phaseNumber] || 'This phase of the research journey.'}</p>
         </div>
         <div class="empty-state">
-            <p>Select a document from the table of contents to begin exploring this phase.</p>
+            <p>Click "Next" below to view the phase overview, or select a specific document from the table of contents.</p>
         </div>
     `;
 }
@@ -182,57 +184,102 @@ async function setupPageNavigation(phaseNumber) {
     
     const prevButton = document.getElementById('prevButton');
     const nextButton = document.getElementById('nextButton');
+    const phaseInfo = getPhaseInfo(phaseNumber);
+    
+    // Get all files including the phase overview
+    const allFiles = await getAllPhaseFiles(phaseInfo.folder);
     
     if (!currentFile) {
-        // On phase intro page, only show next button if files exist
-        const phaseInfo = getPhaseInfo(phaseNumber);
-        const files = await getPhaseFiles(phaseInfo.folder);
-        
-        if (files.length > 0) {
+        // On phase landing page (no file parameter)
+        // Next button should go to the phase overview (index.html)
+        const overviewFile = allFiles.find(f => f.isPhaseOverview);
+        if (overviewFile) {
             nextButton.style.display = 'flex';
             nextButton.onclick = () => {
-                window.location.href = `phase.html?phase=${phaseNumber}&file=${files[0].filename}`;
+                window.location.href = `phase.html?phase=${phaseNumber}&file=${overviewFile.filename}`;
             };
         }
+        // No previous button on landing page
+        prevButton.style.display = 'none';
         return;
     }
     
-    const phaseInfo = getPhaseInfo(phaseNumber);
-    const files = await getPhaseFiles(phaseInfo.folder);
-    const currentIndex = files.findIndex(f => f.filename === currentFile);
+    // Find current file in all files list
+    const currentIndex = allFiles.findIndex(f => f.filename === currentFile);
     
     if (currentIndex === -1) return;
     
+    const currentFileData = allFiles[currentIndex];
+    
     // Setup previous button
-    if (currentIndex > 0) {
-        prevButton.style.display = 'flex';
-        prevButton.onclick = () => {
-            window.location.href = `phase.html?phase=${phaseNumber}&file=${files[currentIndex - 1].filename}`;
-        };
-    } else {
-        // First file, previous goes to phase intro
+    if (currentFileData.isPhaseOverview) {
+        // On phase overview, previous goes back to phase landing
         prevButton.style.display = 'flex';
         prevButton.onclick = () => {
             window.location.href = `phase.html?phase=${phaseNumber}`;
         };
+    } else if (currentIndex > 0) {
+        // On a regular file, previous goes to the previous file (could be overview or another entry)
+        prevButton.style.display = 'flex';
+        prevButton.onclick = () => {
+            window.location.href = `phase.html?phase=${phaseNumber}&file=${allFiles[currentIndex - 1].filename}`;
+        };
+    } else {
+        // This shouldn't happen if overview is first, but hide button just in case
+        prevButton.style.display = 'none';
     }
     
     // Setup next button
-    if (currentIndex < files.length - 1) {
+    if (currentIndex < allFiles.length - 1) {
+        // There's a next file in this phase
         nextButton.style.display = 'flex';
         nextButton.onclick = () => {
-            window.location.href = `phase.html?phase=${phaseNumber}&file=${files[currentIndex + 1].filename}`;
+            window.location.href = `phase.html?phase=${phaseNumber}&file=${allFiles[currentIndex + 1].filename}`;
         };
     } else {
-        // Last file, next goes to next phase if it exists
+        // Last file in phase, next goes to next phase landing if it exists
         const nextPhaseNumber = (parseInt(phaseNumber) + 1).toString();
         if (parseInt(nextPhaseNumber) <= 8) {
             nextButton.style.display = 'flex';
             nextButton.onclick = () => {
                 window.location.href = `phase.html?phase=${nextPhaseNumber}`;
             };
+        } else {
+            // No next phase
+            nextButton.style.display = 'none';
         }
     }
+}
+
+/**
+ * Get all phase files including the phase overview
+ * This is used for navigation to include index.html in the sequence
+ */
+async function getAllPhaseFiles(phaseFolder) {
+    try {
+        const response = await fetch(`${TOC_CONFIG.baseFolder}/${phaseFolder}/manifest.json`);
+        if (response.ok) {
+            const manifest = await response.json();
+            const docs = manifest.documents || manifest.files || [];
+            
+            // Return all files including phase overview, preserving order
+            // Phase overview should be first
+            const files = docs.map(doc => ({
+                filename: doc.file || doc.filename,
+                title: doc.title,
+                path: doc.path || `${TOC_CONFIG.baseFolder}/${phaseFolder}/${doc.file || doc.filename}`,
+                date: doc.date,
+                category: doc.category,
+                isPhaseOverview: doc.isPhaseOverview || false
+            }));
+            
+            return files;
+        }
+    } catch (error) {
+        console.log(`No manifest found for ${phaseFolder}`);
+    }
+    
+    return [];
 }
 
 // Export functions

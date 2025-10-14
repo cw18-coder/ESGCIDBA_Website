@@ -421,6 +421,69 @@ article figcaption {
     font-size: 1rem;
 }
 
+/* ===== Page Navigation Buttons ===== */
+.page-navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-xl);
+    padding-top: var(--spacing-lg);
+    border-top: 2px solid var(--color-border);
+}
+
+.nav-button {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-md) var(--spacing-lg);
+    background-color: var(--color-primary);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    text-decoration: none;
+    box-shadow: var(--shadow-sm);
+}
+
+.nav-button:hover {
+    background-color: var(--color-accent);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+    text-decoration: none;
+}
+
+.nav-button:active {
+    transform: translateY(0);
+    box-shadow: var(--shadow-sm);
+}
+
+.nav-button:focus {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+}
+
+.nav-button .nav-arrow {
+    font-size: 1.25rem;
+    line-height: 1;
+}
+
+.nav-button .nav-label {
+    line-height: 1;
+}
+
+.prev-button {
+    margin-right: auto;
+}
+
+.next-button {
+    margin-left: auto;
+}
+
 /* ===== Print Styles ===== */
 @media print {
     header,
@@ -512,9 +575,20 @@ article figcaption {
         padding: var(--spacing-sm);
     }
     
+    .page-navigation {
+        gap: var(--spacing-sm);
+        flex-wrap: wrap;
+    }
+    
     .nav-button {
         padding: var(--spacing-sm) var(--spacing-md);
         font-size: 0.9rem;
+        flex: 1 1 auto;
+        min-width: 120px;
+    }
+    
+    .nav-button .nav-label {
+        font-size: 0.85rem;
     }
 }
 
