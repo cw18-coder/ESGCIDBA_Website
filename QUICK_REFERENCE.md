@@ -17,14 +17,12 @@ thesis_md/3_literature_review/my_article.md
 
 # 2. Convert Markdown → HTML using .github/prompts/markdown_to_html.prompt.md
 #    (Creates: thesis_html/3_literature_review/my_article.html)
+#    (Automatically updates manifest.json with proper structure)
 
-# 3. Regenerate navigation manifests
-npm run generate-manifests
-
-# 4. Test locally
+# 3. Test locally
 python -m http.server 8000
 
-# 5. Commit and deploy
+# 4. Commit and deploy
 git add .
 git commit -m "Add new literature review"
 git push
@@ -35,8 +33,8 @@ git push
 # 1. Create HTML directly in phase folder
 thesis_html/3_literature_review/my_new_article.html
 
-# 2. Regenerate manifests
-npm run generate-manifests
+# 2. Manually update manifest.json
+#    Add document entry with: file, title, date (YYYY-MM-DD), category
 
 # 3. Test, commit, push
 ```
@@ -55,30 +53,28 @@ npm run serve
 # Then visit: http://localhost:8000
 ```
 
-### Two-Step Process Explained
+### Conversion Process Explained
 
-**Step 1: Markdown → HTML** (content creation)
+**Markdown → HTML with Auto-Manifest Update**
 ```bash
 # Use .github/prompts/markdown_to_html.prompt.md with GitHub Copilot
 # Input:  thesis_md/3_literature_review/article.md
 # Output: thesis_html/3_literature_review/article.html
+#         + thesis_html/3_literature_review/manifest.json (auto-updated)
 ```
 
-**Step 2: HTML → Manifests** (navigation index)
-```bash
-# Run after adding/removing/renaming HTML files
-npm run generate-manifests
-# Creates/updates: thesis_html/*/manifest.json
-# These files tell the website what content exists
-```
+**What the Prompt Does:**
+- Converts Markdown to properly formatted HTML
+- Extracts date from content (e.g., "**Date**: 10th October 2025")
+- Updates manifest.json with document entry in correct structure
+- Maintains hierarchical TOC organization (Year → Month → Documents)
 
 **Important:** 
-- manifest.json = navigation index (not content)
-- Manifests must be regenerated when:
-  - Adding new HTML files ✅
-  - Removing HTML files ✅
-  - Renaming HTML files ✅
-  - Editing HTML content ❌ (not needed)
+- manifest.json uses `documents` array with date-based organization
+- Phase overviews (index.html) marked with `isPhaseOverview: true`
+- All content documents must have `date` field in ISO format (YYYY-MM-DD)
+- Editing HTML content does NOT require manifest updates
+- Adding/removing files DOES require manifest updates (done via prompt)
 
 ## 📁 File Locations
 
@@ -137,8 +133,10 @@ Edit `index.html` - update text in hero section and phase cards
 # Check manifest exists
 dir thesis_html\[phase_folder]\manifest.json
 
-# Regenerate if missing
-npm run generate-manifests
+# Verify manifest.json structure
+# - Must use 'documents' array (not 'files')
+# - Phase overview marked with 'isPhaseOverview: true'
+# - Documents have 'date' field in ISO format
 
 # Clear browser cache: Ctrl+Shift+R
 ```
@@ -153,8 +151,9 @@ npm run generate-manifests
 
 ### Navigation Not Working
 ```bash
-# Check manifest.json files exist
+# Check manifest.json files exist and have correct structure
 # Verify HTML files are in correct folders
+# Ensure documents array has proper date fields
 # Test locally before deploying
 # Check browser console for errors
 ```
@@ -206,10 +205,11 @@ Phase 1:         https://esgci-dba-thesis.clarencew.dev/phase.html?phase=1
 ## 📦 NPM Scripts
 
 ```bash
-npm run generate-manifests    # Generate all manifest files
 npm run serve                 # Start Python server (port 8000)
 npm run serve-alt            # Start Node http-server (port 8000)
 ```
+
+**Note**: The `generate-manifests` script is deprecated. Use the markdown_to_html.prompt.md workflow instead, which automatically maintains correct manifest structure.
 
 ## 🔍 Git Commands
 
@@ -246,7 +246,8 @@ git log --oneline
 
 Before pushing to GitHub:
 - [ ] All new HTML files added to correct phase folders
-- [ ] Manifests regenerated (`npm run generate-manifests`)
+- [ ] Manifest.json updated with proper structure (via markdown_to_html prompt)
+- [ ] Verified manifest uses 'documents' array with date fields
 - [ ] Tested locally (all navigation works)
 - [ ] No JavaScript errors in console
 - [ ] All images load correctly

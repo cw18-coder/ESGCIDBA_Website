@@ -3,6 +3,46 @@
 ## Purpose
 Convert individual Markdown files from the `thesis_md/` directory into properly formatted HTML files in the corresponding `thesis_html/` directory, maintaining the parallel folder structure and ensuring consistent styling for the academic thesis website.
 
+## ⚠️ CRITICAL WARNINGS
+
+### DO NOT Use `npm run generate-manifests`
+**NEVER run the `npm run generate-manifests` command after converting files!** This command uses an incompatible manifest structure and will break:
+- Hierarchical table of contents (TOC) organization by year/month
+- Previous/Next navigation buttons
+- Phase overview pages
+
+### Required Manifest Structure
+The manifest.json file MUST use this structure:
+```json
+{
+  "phase": "phase_folder_name",
+  "title": "Phase Human-Readable Name",
+  "generated": "ISO timestamp",
+  "documents": [
+    {
+      "file": "index.html",
+      "title": "Phase Overview - Name",
+      "isPhaseOverview": true
+    },
+    {
+      "file": "document.html",
+      "title": "Document Title",
+      "date": "YYYY-MM-DD",
+      "category": "optional_category"
+    }
+  ]
+}
+```
+
+### Requirements Checklist
+Before completing any conversion, verify:
+- [ ] Phase has an `index.html` overview file (see existing phases for examples)
+- [ ] manifest.json uses `documents` array (NOT `files` array)
+- [ ] index.html is marked with `isPhaseOverview: true` and has NO date field
+- [ ] All other documents have `date` field in ISO format (YYYY-MM-DD)
+- [ ] Documents are sorted by date (oldest first)
+- [ ] DO NOT run `npm run generate-manifests` after conversion
+
 ## Input Parameters
 
 When invoking this prompt, provide:

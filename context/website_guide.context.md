@@ -80,19 +80,33 @@ Each HTML file should have this basic structure:
 </html>
 ```
 
-### 2. Generate Manifest Files
+### 2. Update Manifest Files
 
-After adding new HTML files, regenerate the manifest files so they appear in the table of contents:
+**Option A: Automatic (Recommended)**
+Use the `markdown_to_html.prompt.md` workflow with GitHub Copilot, which automatically:
+- Converts Markdown to HTML
+- Updates manifest.json with correct structure
+- Extracts and formats dates for hierarchical TOC
 
-```bash
-# Using Node.js (recommended)
-npm run generate-manifests
-
-# Or directly
-node js/generate-manifest.js
+**Option B: Manual**
+If you created HTML directly, manually edit the phase's `manifest.json`:
+```json
+{
+  "phase": "phase_folder_name",
+  "title": "Phase Name",
+  "generated": "ISO timestamp",
+  "documents": [
+    {
+      "file": "your_new_file.html",
+      "title": "Document Title",
+      "date": "YYYY-MM-DD",
+      "category": "optional_category"
+    }
+  ]
+}
 ```
 
-This creates/updates `manifest.json` files in each phase folder, which the website uses to build navigation.
+This ensures the website navigation and hierarchical TOC work correctly.
 
 ### 3. Preview Locally
 
@@ -145,17 +159,16 @@ This website is designed to work with GitHub Pages:
 
 ## Adding Content Workflow
 
-### Standard Workflow
+### Standard Workflow (Recommended)
 
 1. **Write in Markdown** (in `thesis_md/` folder)
-2. **Convert to HTML** (see markdown_to_html.prompt.md for guidance)
-3. **Place HTML in appropriate phase folder** (in `thesis_html/`)
-4. **Run manifest generator:**
-   ```bash
-   npm run generate-manifests
-   ```
-5. **Test locally**
-6. **Commit and push to GitHub**
+2. **Use markdown_to_html.prompt.md** with GitHub Copilot
+   - Automatically converts Markdown to HTML
+   - Places HTML in appropriate phase folder (in `thesis_html/`)
+   - Updates manifest.json with correct structure
+   - Extracts and formats dates for hierarchical TOC
+3. **Test locally**
+4. **Commit and push to GitHub**
 
 ### Quick Add Workflow
 
@@ -207,9 +220,10 @@ Edit CSS variables in `css/main.css`:
 If you need to add additional phases:
 
 1. Create folder in `thesis_html/` (e.g., `9_additional_phase/`)
-2. Update configuration in `js/navigation.js` and `js/toc-generator.js`
-3. Add navigation link in `index.html` and `phase.html`
-4. Regenerate manifests
+2. Create `index.html` phase overview page
+3. Create `manifest.json` with proper structure
+4. Update configuration in `js/navigation.js` and `js/toc-generator.js`
+5. Add navigation link in `index.html` and `phase.html`
 
 ### Modifying Layout
 
@@ -222,8 +236,11 @@ If you need to add additional phases:
 ### Content Not Showing Up
 
 1. Check that HTML files are in the correct folder
-2. Regenerate manifests: `npm run generate-manifests`
-3. Clear browser cache and reload
+2. Verify manifest.json has correct structure:
+   - Uses `documents` array (not `files`)
+   - Phase overview marked with `isPhaseOverview: true`
+   - Documents have `date` field in ISO format
+3. Clear browser cache and reload (Ctrl+Shift+R)
 4. Check browser console for errors (F12)
 
 ### Manifest Generator Not Working

@@ -34,7 +34,23 @@ async function getPhaseFiles(phaseFolder) {
         const response = await fetch(`${TOC_CONFIG.baseFolder}/${phaseFolder}/manifest.json`);
         if (response.ok) {
             const manifest = await response.json();
-            return manifest.files || [];
+            
+            // Support both 'documents' (new hierarchical structure) and 'files' (legacy)
+            let docs = manifest.documents || manifest.files || [];
+            
+            // Convert documents to files format for navigation compatibility
+            // Filter out phase overview for linear navigation
+            const files = docs
+                .filter(doc => !doc.isPhaseOverview)
+                .map(doc => ({
+                    filename: doc.file || doc.filename,
+                    title: doc.title,
+                    path: doc.path || `${TOC_CONFIG.baseFolder}/${phaseFolder}/${doc.file || doc.filename}`,
+                    date: doc.date,
+                    category: doc.category
+                }));
+            
+            return files;
         }
     } catch (error) {
         console.log(`No manifest found for ${phaseFolder}, checking for index file`);

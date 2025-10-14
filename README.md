@@ -89,10 +89,10 @@ ESGCIDBA_Website/
    thesis_html/3_literature_review/your_new_file.html
    ```
 
-2. **Regenerate manifest files:**
-   ```bash
-   npm run generate-manifests
-   ```
+2. **Update manifest.json manually:**
+   - Add document entry with proper structure (see `.github/prompts/markdown_to_html.prompt.md`)
+   - Include: `file`, `title`, `date` (ISO format YYYY-MM-DD), optional `category`
+   - Phase overviews: mark with `isPhaseOverview: true`, no date field
 
 3. **Test locally, then deploy:**
    ```bash
@@ -133,15 +133,11 @@ ESGCIDBA_Website/
    ```
 
 2. **Convert to HTML:**
-   - Use `.github/prompts/markdown_to_html.prompt.md` guide
-   - Place in corresponding `thesis_html/[phase_folder]/`
+   - Use `.github/prompts/markdown_to_html.prompt.md` with GitHub Copilot
+   - This will automatically create HTML and update manifest.json
+   - Maintains proper hierarchical TOC structure
 
-3. **Regenerate manifests:**
-   ```bash
-   npm run generate-manifests
-   ```
-
-4. **Commit and deploy:**
+3. **Commit and deploy:**
    ```bash
    git add .
    git commit -m "Add new content"

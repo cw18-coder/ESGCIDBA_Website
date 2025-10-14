@@ -2,52 +2,58 @@
 
 ## Question 1: Markdown Conversion Method
 
-**Q: Should I use markdown_to_html.prompt.md or npm run generate-manifests?**
+**Q: How do I add new content to the website?**
 
-**A: Use BOTH - they serve different purposes:**
+**A: Use the markdown_to_html.prompt.md workflow - it handles everything automatically.**
 
-### markdown_to_html.prompt.md
-- **Purpose**: Convert Markdown files → HTML files
+### markdown_to_html.prompt.md (RECOMMENDED)
+- **Purpose**: Convert Markdown → HTML AND update manifest.json
 - **When**: Creating new content documents
 - **Input**: `thesis_md/3_literature_review/article.md`
-- **Output**: `thesis_html/3_literature_review/article.html`
+- **Output**: 
+  - `thesis_html/3_literature_review/article.html` (HTML file)
+  - Updates `thesis_html/3_literature_review/manifest.json` (navigation index)
 - **How**: Use with GitHub Copilot Chat
-- **Guarantees**: Consistent HTML structure, styling, metadata
-
-### npm run generate-manifests
-- **Purpose**: Scan HTML files → Create navigation indexes
-- **When**: After adding/removing/renaming HTML files
-- **Input**: All `.html` files in `thesis_html/*/`
-- **Output**: `manifest.json` files in each phase folder
-- **How**: Run command in terminal
-- **Guarantees**: Accurate navigation tables of contents
+- **Guarantees**: 
+  - Consistent HTML structure and styling
+  - Correct manifest.json structure with `documents` array
+  - Hierarchical TOC organization (Year → Month → Documents)
+  - Proper date extraction and ISO formatting
+  - Phase overview identification
 
 ### Complete Workflow
 ```bash
 # 1. Create content (Markdown)
 thesis_md/3_literature_review/smith_analysis.md
 
-# 2. Convert to HTML (use markdown_to_html.prompt.md)
+# 2. Convert to HTML using markdown_to_html.prompt.md with Copilot
 → Creates: thesis_html/3_literature_review/smith_analysis.html
+→ Updates: thesis_html/3_literature_review/manifest.json (automatically)
 
-# 3. Generate navigation index
-npm run generate-manifests
-→ Updates: thesis_html/3_literature_review/manifest.json
+# 3. Test locally
+python -m http.server 8000
 
 # 4. Deploy
 git add . && git commit -m "Add Smith analysis" && git push
 ```
 
-### For Consistency & Repeatability
-**Use `markdown_to_html.prompt.md` for content conversion because:**
+### Why This Workflow?
+**Use `markdown_to_html.prompt.md` because:**
 1. ✅ Enforces consistent HTML structure
 2. ✅ Applies uniform styling classes
 3. ✅ Ensures proper semantic markup
-4. ✅ Includes required metadata
-5. ✅ Works with GitHub Copilot for automation
+4. ✅ Automatically updates manifest.json with correct structure
+5. ✅ Extracts and formats dates for hierarchical TOC
+6. ✅ Marks phase overviews correctly
+7. ✅ Works with GitHub Copilot for automation
 
-**Alternative (less consistent):**
-- Manual HTML creation works but may have inconsistencies
+### ⚠️ DEPRECATED: npm run generate-manifests
+**DO NOT USE** `npm run generate-manifests` - This command creates an incompatible manifest structure that breaks:
+- Hierarchical year/month TOC organization
+- Phase overview identification
+- Date-based document grouping
+
+The manifest structure created by this script uses a `files` array instead of the required `documents` array, causing navigation issues.
 - Direct HTML editing is fine for quick fixes
 - But for new documents, the prompt ensures quality
 
@@ -104,24 +110,26 @@ manifest.files.forEach(file => {
 
 ### What Manifests Contain
 - **Phase identifier**: Which phase folder it represents
-- **File count**: Total number of documents
-- **File list**: Array of all HTML files with:
-  - `filename`: The actual file name
-  - `title`: Extracted from HTML `<title>` or `<h1>`
-  - `path`: Full relative path
-  - `modified`: Last modification timestamp
+- **Phase title**: Human-readable phase name
+- **Documents array**: List of all documents with:
+  - `file`: The actual file name
+  - `title`: Document title
+  - `date`: ISO format date (YYYY-MM-DD) for hierarchical organization
+  - `category`: Optional categorization
+  - `isPhaseOverview`: Boolean flag for index.html pages
 
-### When to Regenerate
+### When to Update
 ```bash
-✅ After adding new HTML files → npm run generate-manifests
-✅ After deleting HTML files → npm run generate-manifests
-✅ After renaming HTML files → npm run generate-manifests
+✅ After adding new HTML files → Use markdown_to_html.prompt.md (updates automatically)
+✅ After deleting HTML files → Manually remove entry from manifest.json
+✅ After renaming HTML files → Manually update filename in manifest.json
 ❌ After editing HTML content → NOT needed (content change only)
 ```
 
 ### Where They're Used
-1. **Sidebar TOC**: `js/toc-generator.js` reads manifests to build navigation
-2. **Phase landing pages**: Shows available documents
+1. **Hierarchical TOC**: `js/toc-generator.js` reads manifests to build Year → Month → Document navigation
+2. **Phase landing pages**: Shows phase overview and available documents
+3. **Navigation buttons**: Previous/Next document navigation
 3. **Previous/Next logic**: Determines navigation order
 4. **Empty state detection**: Shows "no content yet" if fileCount = 0
 
@@ -217,11 +225,13 @@ After implementation, refer to:
 
 ### Your Questions - Answered
 
-1. **Markdown conversion**: Use `markdown_to_html.prompt.md` for consistency
-   - Then run `npm run generate-manifests` for navigation
+1. **Markdown conversion**: Use `markdown_to_html.prompt.md` for complete workflow
+   - Automatically creates HTML AND updates manifest.json
+   - No separate manifest generation step needed
 
 2. **manifest.json purpose**: Navigation indexes for browser JavaScript
-   - Lists available content since browser can't read filesystem
+   - Lists available content with hierarchical date-based organization
+   - Enables Year → Month → Document TOC structure
 
 3. **File organization**: Fixed! ✅
    - Guides moved to `context/` folder
@@ -230,24 +240,25 @@ After implementation, refer to:
 
 ### What You Should Know
 
-**Two separate processes:**
+**Unified workflow with markdown_to_html.prompt.md:**
 ```
-Content Creation:      Markdown → HTML (markdown_to_html.prompt.md)
-Navigation Building:   HTML files → manifest.json (npm run generate-manifests)
+Content Creation + Navigation:  Markdown → HTML + manifest.json update (automated)
 ```
 
 **Every time you add content:**
 ```bash
-1. Write .md file (or create .html directly)
-2. Convert to HTML (if from .md)
-3. Run: npm run generate-manifests
-4. Test, commit, push
+1. Write .md file in thesis_md/
+2. Use markdown_to_html.prompt.md with Copilot
+   - Creates HTML in thesis_html/
+   - Updates manifest.json automatically
+3. Test, commit, push
 ```
 
 **Manifests are essential:**
 - Without them, navigation won't work
-- They're small JSON files (few KB each)
-- Must be regenerated after file changes
+- Use `documents` array structure (not `files`)
+- Include date fields in ISO format for hierarchical TOC
+- Mark phase overviews with `isPhaseOverview: true`
 - Committed to Git like any other file
 
 **Documentation is now organized:**
