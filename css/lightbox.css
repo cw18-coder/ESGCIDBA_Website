@@ -1,0 +1,142 @@
+/* ===================================
+   Lightbox Modal Styles
+   Provides click-to-magnify functionality for images
+   =================================== */
+
+/* Modal Container */
+.lightbox-modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    justify-content: center;
+    align-items: center;
+}
+
+.lightbox-modal.active {
+    display: flex;
+}
+
+/* Modal Content */
+.lightbox-content {
+    position: relative;
+    max-width: 90%;
+    max-height: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.lightbox-image {
+    max-width: 100%;
+    max-height: 90vh;
+    object-fit: contain;
+    box-shadow: 0 4px 20px rgba(255, 255, 255, 0.3);
+}
+
+/* Close Button */
+.lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 40px;
+    color: #ffffff;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 10px;
+    line-height: 1;
+    transition: color 0.3s ease;
+    z-index: 10000;
+}
+
+.lightbox-close:hover,
+.lightbox-close:focus {
+    color: #cccccc;
+    outline: none;
+}
+
+/* ===================================
+   Responsive Image Styles
+   Applied to images with lightbox functionality
+   =================================== */
+
+.responsive-image {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.responsive-image:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* ===================================
+   Academic Figure Styles
+   Semantic styling for figures with captions
+   =================================== */
+
+.academic-figure {
+    margin: 2rem auto;
+    max-width: 100%;
+    text-align: center;
+}
+
+.academic-figure figcaption {
+    margin-top: 0.75rem;
+    font-size: 0.9rem;
+    font-style: italic;
+    color: #555555;
+    text-align: center;
+    line-height: 1.6;
+}
+
+.figure-label {
+    font-weight: 600;
+    color: #333333;
+    font-style: normal;
+}
+
+.figure-caption {
+    display: inline;
+}
+
+/* ===================================
+   Mobile Responsiveness
+   =================================== */
+
+@media (max-width: 768px) {
+    .lightbox-close {
+        top: 10px;
+        right: 10px;
+        font-size: 30px;
+    }
+    
+    .lightbox-content {
+        max-width: 95%;
+        max-height: 95%;
+    }
+    
+    .academic-figure {
+        margin: 1.5rem auto;
+    }
+    
+    .academic-figure figcaption {
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .lightbox-close {
+        font-size: 24px;
+        padding: 8px;
+    }
+}
