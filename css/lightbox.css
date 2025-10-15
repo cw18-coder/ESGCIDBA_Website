@@ -36,6 +36,19 @@
     max-height: 90vh;
     object-fit: contain;
     box-shadow: 0 4px 20px rgba(255, 255, 255, 0.3);
+    transition: transform 0.3s ease;
+    cursor: grab;
+}
+
+.lightbox-image.zoomed {
+    cursor: move;
+    max-width: none;
+    max-height: none;
+}
+
+.lightbox-content.zoomed {
+    overflow: auto;
+    cursor: move;
 }
 
 /* Close Button */
@@ -58,6 +71,66 @@
 .lightbox-close:focus {
     color: #cccccc;
     outline: none;
+}
+
+/* Zoom Controls */
+.lightbox-zoom-controls {
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    display: flex;
+    gap: 10px;
+    z-index: 10000;
+}
+
+.lightbox-zoom-btn {
+    width: 45px;
+    height: 45px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #ffffff;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    font-size: 24px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    user-select: none;
+}
+
+.lightbox-zoom-btn:hover {
+    background-color: rgba(0, 0, 0, 0.9);
+    border-color: rgba(255, 255, 255, 0.6);
+    transform: scale(1.1);
+}
+
+.lightbox-zoom-btn:active {
+    transform: scale(0.95);
+}
+
+.lightbox-zoom-btn:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+.lightbox-zoom-btn:disabled:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+    transform: scale(1);
+}
+
+.lightbox-zoom-level {
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #ffffff;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 25px;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 70px;
 }
 
 /* ===================================
@@ -113,6 +186,15 @@
    Mobile Responsiveness
    =================================== */
 
+/* Click to expand hint */
+.expand-hint {
+    font-size: 0.85em;
+    color: #666666;
+    font-style: italic;
+    font-weight: normal;
+    margin-left: 0.5em;
+}
+
 @media (max-width: 768px) {
     .lightbox-close {
         top: 10px;
@@ -132,11 +214,47 @@
     .academic-figure figcaption {
         font-size: 0.85rem;
     }
+    
+    .lightbox-zoom-controls {
+        bottom: 15px;
+        right: 15px;
+        gap: 8px;
+    }
+    
+    .lightbox-zoom-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+    }
+    
+    .lightbox-zoom-level {
+        padding: 8px 15px;
+        font-size: 12px;
+        min-width: 60px;
+    }
 }
 
 @media (max-width: 480px) {
     .lightbox-close {
         font-size: 24px;
         padding: 8px;
+    }
+    
+    .lightbox-zoom-controls {
+        bottom: 10px;
+        right: 10px;
+        gap: 6px;
+    }
+    
+    .lightbox-zoom-btn {
+        width: 35px;
+        height: 35px;
+        font-size: 18px;
+    }
+    
+    .lightbox-zoom-level {
+        padding: 6px 12px;
+        font-size: 11px;
+        min-width: 50px;
     }
 }

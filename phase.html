@@ -9,6 +9,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/academic.css">
+    <link rel="stylesheet" href="css/lightbox.css">
 </head>
 <body>
     <header></header>
@@ -61,6 +62,20 @@
 
     <footer></footer>
 
+    <!-- Lightbox Modal -->
+    <div id="lightboxModal" class="lightbox-modal" role="dialog" aria-modal="true" aria-label="Image Lightbox">
+        <button class="lightbox-close" aria-label="Close lightbox">&times;</button>
+        <div class="lightbox-content">
+            <img id="lightboxImage" class="lightbox-image" src="" alt="">
+        </div>
+        <div class="lightbox-zoom-controls">
+            <button id="zoomOut" class="lightbox-zoom-btn" aria-label="Zoom out" title="Zoom out">−</button>
+            <div class="lightbox-zoom-level" id="zoomLevel">100%</div>
+            <button id="zoomIn" class="lightbox-zoom-btn" aria-label="Zoom in" title="Zoom in">+</button>
+        </div>
+    </div>
+
+    <script src="js/lightbox.js"></script>
     <script src="js/header-footer.js"></script>
     <script>
         // Initialize header and footer

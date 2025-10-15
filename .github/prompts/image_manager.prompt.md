@@ -181,9 +181,12 @@ For each image, generate the complete HTML structure:
     <figcaption>
         <span class="figure-label">Figure 1:</span> 
         <span class="figure-caption">Gantt chart illustrating Phase 1 timeline and milestones from October 2025 to March 2026</span>
+        <span class="expand-hint">(click to expand)</span>
     </figcaption>
 </figure>
 ```
+
+**Note**: Always include `<span class="expand-hint">(click to expand)</span>` at the end of every figcaption to inform users of the interactive lightbox capability.
 
 ### Step 6: Add Lightbox Infrastructure
 Ensure the HTML page has the necessary CSS and JavaScript files linked:
@@ -453,6 +456,27 @@ Ensure the HTML page has the necessary CSS and JavaScript files linked:
 ```
 
 ### Step 7: Insert Images and Save
+
+**IMPORTANT: Check for Dynamic Page Loaders**
+
+Before modifying individual HTML files, determine if the site uses a dynamic page loading system:
+
+1. **Check if pages are loaded dynamically**:
+   - Look for URLs like: `phase.html?phase=X&file=Y.html`
+   - Check if there's a master template file (e.g., `phase.html`, `index.html`)
+   - Look for JavaScript files like `phase-loader.js` or similar that load content dynamically
+
+2. **If using dynamic page loader**:
+   - **DO NOT add lightbox infrastructure to individual content HTML files**
+   - Add lightbox infrastructure ONLY to the **master template** (e.g., `phase.html`)
+   - Content HTML files should ONLY contain the `<figure>` element with the image
+   - The master template handles all CSS links, JS links, and lightbox modal structure
+
+3. **If NOT using dynamic page loader** (standalone HTML files):
+   - Add lightbox infrastructure to each individual HTML file as described below
+
+**For standalone HTML files (non-dynamic):**
+
 1. **Ensure lightbox infrastructure is in place**:
    
    a. **Check for CSS file**:
@@ -471,6 +495,8 @@ Ensure the HTML page has the necessary CSS and JavaScript files linked:
       - Search for `id="lightboxModal"` in the HTML body
       - If not found, add the lightbox modal HTML structure before closing `</body>` tag (before scripts)
       - If found, skip HTML structure addition
+
+**For ALL cases (dynamic or standalone):**
 
 2. **Locate insertion point** based on `section` parameter or default position
 
@@ -735,6 +761,7 @@ Before finalizing the insertion:
 - **Mobile-Friendly**: All images must be responsive and touch-enabled
 - **Academic Standards**: Follow academic conventions for figure numbering and citations
 - **Consistency**: Maintain consistent styling across all images on all pages
+- **⚠️ CRITICAL - Dynamic Page Loaders**: If the website uses a dynamic page loading system (e.g., `phase.html?phase=X&file=Y.html`), add lightbox infrastructure ONLY to the master template file, NOT to individual content HTML files. Content files should only contain the `<figure>` elements.
 
 ## Dependencies
 
