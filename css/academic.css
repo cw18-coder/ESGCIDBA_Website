@@ -315,11 +315,15 @@ article pre {
     border-radius: 4px;
     overflow-x: auto;
     margin-bottom: var(--spacing-md);
+    white-space: pre-wrap;
+    word-wrap: break-word;
 }
 
 article pre code {
     background-color: transparent;
     padding: 0;
+    white-space: pre-wrap;
+    word-break: break-word;
 }
 
 /* Tables */
@@ -328,6 +332,13 @@ article table {
     border-collapse: collapse;
     margin-bottom: var(--spacing-lg);
     font-size: 0.95rem;
+}
+
+/* Table wrapper for responsive scrolling */
+.table-wrapper {
+    overflow-x: auto;
+    margin-bottom: var(--spacing-lg);
+    -webkit-overflow-scrolling: touch;
 }
 
 article th,
@@ -569,6 +580,16 @@ article figcaption {
     .main-content {
         padding: var(--spacing-md);
     }
+    
+    /* Responsive tables for tablets */
+    article table {
+        font-size: 0.9rem;
+    }
+    
+    article th,
+    article td {
+        padding: var(--spacing-xs) var(--spacing-sm);
+    }
 }
 
 @media (max-width: 480px) {
@@ -594,6 +615,24 @@ article figcaption {
     
     .nav-button .nav-label {
         font-size: 0.85rem;
+    }
+    
+    /* Mobile-friendly tables */
+    article table {
+        font-size: 0.85rem;
+    }
+    
+    article th,
+    article td {
+        padding: var(--spacing-xs);
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+    
+    /* Extra small code blocks */
+    article pre {
+        font-size: 0.8rem;
+        padding: var(--spacing-sm);
     }
 }
 

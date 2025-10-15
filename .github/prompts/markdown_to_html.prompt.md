@@ -128,6 +128,8 @@ Convert Markdown syntax to semantic HTML:
 
 **Tables:**
 - Convert Markdown tables to HTML `<table>` with proper `<thead>`, `<tbody>`, `<tr>`, `<th>`, `<td>` elements
+- **IMPORTANT**: Wrap all tables in a `<div class="table-wrapper">` for responsive mobile scrolling
+- Example: `<div class="table-wrapper"><table>...</table></div>`
 
 **Academic Citations:**
 - Recognize citation formats (APA, Harvard, etc.)
@@ -246,9 +248,12 @@ Ensure the HTML includes classes for academic elements:
     <figcaption>Figure 1: Caption text</figcaption>
 </figure>
 
-<table class="academic-table">
-    <!-- table content -->
-</table>
+<!-- CRITICAL: Always wrap tables in table-wrapper div for mobile responsiveness -->
+<div class="table-wrapper">
+    <table class="academic-table">
+        <!-- table content -->
+    </table>
+</div>
 
 <!-- Blockquotes -->
 <blockquote class="academic-quote">
@@ -262,7 +267,14 @@ Add appropriate classes for responsive layout:
 - `.content-wrapper` - Main container
 - `.main-content` - Article content area
 - `.toc-sidebar` - Navigation sidebar
+- `.table-wrapper` - **REQUIRED wrapper for all tables** to enable horizontal scrolling on mobile devices
 - `.mobile-only` / `.desktop-only` - Conditional visibility
+
+### Mobile Responsiveness Requirements
+**CRITICAL for mobile devices:**
+1. **Tables**: ALL tables MUST be wrapped in `<div class="table-wrapper">` to prevent horizontal page scrolling
+2. **Code blocks**: Use `<pre><code>` which automatically wraps on mobile via CSS
+3. **Long text**: Ensure no fixed-width elements that exceed mobile viewport
 
 ## Error Handling
 
