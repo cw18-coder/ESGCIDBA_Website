@@ -11,7 +11,7 @@ gantt
     Reflection journal entries : 2025-10-01, 2026-04-30
     Identify potential topic : 2025-10-01, 2025-11-30
     Literature review : 2025-12-01, 2026-01-31
-    Draft a high-level thesis proposal outline : 2026-02-01, 2026-04-30
+    Draft thesis proposal outline : 2026-02-01, 2026-03-31
     Submit proposal : 2026-04-01, 2026-04-30
 ```
 
@@ -24,7 +24,7 @@ gantt
 | 3 | Reflection journal entries | 2025-10-01 | 2026-04-30 |
 | 4 | Identify potential topic | 2025-10-01 | 2025-11-30 |
 | 5 | Literature review | 2025-12-01 | 2026-01-31 |
-| 6 | Draft a high-level thesis proposal outline | 2026-02-01 | 2026-04-30 |
+| 6 | Draft thesis proposal outline | 2026-02-01 | 2026-03-31 |
 | 7 | Submit proposal | 2026-04-01 | 2026-04-30 |
 
 ---
