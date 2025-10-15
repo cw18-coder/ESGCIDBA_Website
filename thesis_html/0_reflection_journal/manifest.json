@@ -1,7 +1,7 @@
 {
   "phase": "0_reflection_journal",
   "title": "Reflection Journal",
-  "generated": "2025-10-14T00:00:00.000Z",
+  "generated": "2025-10-15T00:00:00.000Z",
   "documents": [
     {
       "file": "index.html",
@@ -12,6 +12,18 @@
       "file": "thoughts-1.html",
       "title": "Thoughts Entry #1 - My Strategy to Conquer the DBA Thesis",
       "date": "2025-10-10",
+      "category": "thoughts"
+    },
+    {
+      "file": "thoughts-2.html",
+      "title": "Thoughts Entry #2 - Breaking Down the DBA Journey",
+      "date": "2025-10-11",
+      "category": "thoughts"
+    },
+    {
+      "file": "thoughts-3.html",
+      "title": "Thoughts Entry #3 - Identifying Potential Research Topics",
+      "date": "2025-10-12",
       "category": "thoughts"
     }
   ]
