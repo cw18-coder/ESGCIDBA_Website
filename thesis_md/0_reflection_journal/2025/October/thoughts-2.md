@@ -17,9 +17,9 @@ The first phase of my DBA journey will focus on completing the foundational cour
 
 1. completing the foundational coursework and assignments
 2. completing a couple of readings of "Research Methods for Business Students" by Saunders, Lewis and Thornhill
-3. identifying 3 potential research topics for my thesis, and conducting preliminary literature reviews on each topic to assess their feasibility and relevance.
-4. creating a high-level thesis proposal outline for each topic, including research questions, objectives, and methodologies.
-5. narrow down to 1 research topic by the end of this phase, based on feedback from my mentors, colleagues, and peers.
+3. identifying a potential research topic for my thesis
+4. conducting preliminary literature reviews on the topic to assess its feasibility and relevance.
+5. creating a high-level thesis proposal outline for the topic, including research questions, objectives, and methodologies.
 
 ***Milestones:***
 
